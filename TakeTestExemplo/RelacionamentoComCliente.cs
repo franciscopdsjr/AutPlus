@@ -2,11 +2,9 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
-namespace TakeTestExemplo
+
+namespace RelacionamentoCliente
 {
-    /// <summary>
-    /// Descrição resumida para RelacionamentoComCliente
-    /// </summary>
     [TestClass]
     public class RelacionamentoComCliente
     {
