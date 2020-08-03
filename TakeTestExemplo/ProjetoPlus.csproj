@@ -186,11 +186,14 @@
     <Compile Include="CadastrarPJApolice.cs" />
     <Compile Include="CadastrarPJProposta.cs" />
     <Compile Include="CadastrarSinistro.cs" />
+    <Compile Include="ConciliaCashExtrato.cs" />
     <Compile Include="FecharNegocio.cs" />
     <Compile Include="LiberaRepasse.cs" />
+    <Compile Include="PagamentoCash.cs" />
     <Compile Include="ProcessaExtrato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuitaRepasse.cs" />
+    <Compile Include="RecebimentoCash.cs" />
     <Compile Include="RenovarApolice.cs" />
   </ItemGroup>
   <ItemGroup>
