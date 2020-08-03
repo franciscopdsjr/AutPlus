@@ -3,15 +3,12 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 
-namespace TakeTestExemplo
+namespace Automacao
 {
-    /// <summary>
-    /// Descrição resumida para ConciliaCashExtrato
-    /// </summary>
     [TestClass]
-    public class ConciliaCashExtrato
+    public class AutomacaoComissao
     {
-        public ConciliaCashExtrato()
+        public AutomacaoComissao()
         {
             #region Abrir o Chrome
             //inicializando o chrome
@@ -49,28 +46,18 @@ namespace TakeTestExemplo
             driver.FindElement(By.CssSelector(".button-login-q")).Click();
             #endregion
 
-            #region Cociliação de extrato
-            driver.FindElement(By.Id("botaoMenu")).Click();
-            driver.FindElement(By.CssSelector("div:nth-child(3) > .menu > .menu-item:nth-child(17) > .menu-span > .zmdi-caret-down")).Click();
-            driver.FindElement(By.LinkText("Lançamentos")).Click();
-            {
-                var element = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[1]/div/ul/li[2]/div[2]/div"));
-                Actions builder = new Actions(driver);
-                builder.MoveToElement(element).Perform();
-            }
-            driver.FindElement(By.CssSelector(".var_nav:nth-child(2) span")).Click();
-            driver.FindElement(By.CssSelector(".ng-isolate-scope:nth-child(1) > .radioCard > span")).Click();
+            #region Automação de comissão
+            driver.FindElement(By.CssSelector(".icon-receipt:nth-child(2)")).Click();
+            driver.FindElement(By.CssSelector(".logoNormal:nth-child(10) .col-xs-10")).Click();
             driver.FindElement(By.Id("comboundefined")).Click();
-            driver.FindElement(By.Id("comboundefined")).SendKeys("bradesc");
-            driver.FindElement(By.LinkText("BRADESCO")).Click();
-            driver.FindElement(By.CssSelector(".btn-flat")).Click();
-            driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > .noPadding .check")).Click();
-            driver.FindElement(By.Id("comboundefined")).Click();
-            driver.FindElement(By.Id("comboundefined")).SendKeys("conta bb");
-            driver.FindElement(By.LinkText("CONTA BB")).Click();
-            js.ExecuteScript("window.scroll(0,1000)");
-            driver.FindElement(By.CssSelector(".card-body > .btn")).Click();
-            driver.FindElement(By.CssSelector(".btn-flat:nth-child(1)")).Click();
+            driver.FindElement(By.Id("comboundefined")).SendKeys("matriz");
+            driver.FindElement(By.CssSelector("strong")).Click();
+            driver.FindElement(By.CssSelector(".btn-success:nth-child(2)")).Click();
+            driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > td .check")).Click();
+            driver.FindElement(By.CssSelector(".btn-md")).Click();
+            js.ExecuteScript("window.scrollTo(0,0)");
+            driver.FindElement(By.CssSelector(".ngdialog-overlay")).Click();
+            driver.FindElement(By.CssSelector(".btn-md")).Click();
             #endregion
         }
     }
