@@ -186,6 +186,7 @@
     <Compile Include="CadastrarPJApolice.cs" />
     <Compile Include="CadastrarPJProposta.cs" />
     <Compile Include="CadastrarSinistro.cs" />
+    <Compile Include="FecharNegocio.cs" />
     <Compile Include="LiberaRepasse.cs" />
     <Compile Include="ProcessaExtrato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
