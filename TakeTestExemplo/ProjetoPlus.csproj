@@ -175,12 +175,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastrarDocMaisVendedor.cs" />
+    <Compile Include="CadastrarEndosso.cs" />
+    <Compile Include="CadastrarPFApolice.cs" />
     <Compile Include="CadastrarCredencial.cs" />
     <Compile Include="CadastrarNegocio.cs" />
     <Compile Include="CadastrarPF.cs" />
     <Compile Include="CadastrarPJ.cs" />
-    <Compile Include="CadastrarPropostaPF.cs" />
+    <Compile Include="CadastrarPFProposta.cs" />
+    <Compile Include="CadastrarPJApolice.cs" />
+    <Compile Include="CadastrarPJProposta.cs" />
+    <Compile Include="CadastrarSinistro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RenovarApolice.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
