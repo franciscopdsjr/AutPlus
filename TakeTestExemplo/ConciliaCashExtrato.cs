@@ -2,8 +2,9 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.Extensions;
 
-namespace TakeTestExemplo
+namespace Cash
 {
     /// <summary>
     /// Descrição resumida para ConciliaCashExtrato
@@ -11,7 +12,8 @@ namespace TakeTestExemplo
     [TestClass]
     public class ConciliaCashExtrato
     {
-        public ConciliaCashExtrato()
+        [TestMethod]
+        public void ConciliarCashExtrato()
         {
             #region Abrir o Chrome
             //inicializando o chrome
@@ -68,7 +70,7 @@ namespace TakeTestExemplo
             driver.FindElement(By.Id("comboundefined")).Click();
             driver.FindElement(By.Id("comboundefined")).SendKeys("conta bb");
             driver.FindElement(By.LinkText("CONTA BB")).Click();
-            js.ExecuteScript("window.scroll(0,1000)");
+            driver.ExecuteJavaScript("window.scroll(0,1000)");
             driver.FindElement(By.CssSelector(".card-body > .btn")).Click();
             driver.FindElement(By.CssSelector(".btn-flat:nth-child(1)")).Click();
             #endregion

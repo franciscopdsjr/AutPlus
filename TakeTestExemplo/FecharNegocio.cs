@@ -8,13 +8,11 @@ using OpenQA.Selenium.Interactions;
 
 namespace CentralDeNegocios
 {
-    /// <summary>
-    /// Descrição resumida para FecharNegocio
-    /// </summary>
     [TestClass]
     public class FecharNegocio
     {
-        public FecharNegocio()
+        [TestMethod]
+        public void FechaNegocio()
         {
             #region Abrir o Chrome
             //inicializando o chrome

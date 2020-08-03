@@ -2,13 +2,15 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.Extensions;
 
 namespace Portal
 {
     [TestClass]
     public class CadastrarEndosso
     {
-        public CadastrarEndosso()
+        [TestMethod]
+        public void CadastraEndosso()
         {
             #region Abrir o Chrome
             //inicializando o chrome
@@ -54,7 +56,7 @@ namespace Portal
             driver.FindElement(By.CssSelector(".list-virtual:nth-child(1) h3 > .ng-binding")).Click();
             driver.FindElement(By.LinkText("Seguros")).Click();
             driver.FindElement(By.CssSelector(".btn-success")).Click();
-            js.ExecuteScript("window.scrollTo(0,0)");
+            driver.ExecuteJavaScript("window.scrollTo(0,0)");
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_cia_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_cia_codigo")).SendKeys("AIG");
             driver.FindElement(By.LinkText("AIG")).Click();
@@ -67,12 +69,12 @@ namespace Portal
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
             driver.FindElement(By.LinkText("Seguro")).Click();
             driver.FindElement(By.CssSelector(".bg-card-teal > .btn")).Click();
-            js.ExecuteScript("window.scrollTo(0,218)");
+            driver.ExecuteJavaScript("window.scrollTo(0,218)");
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_tpmov_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_tpmov_codigo")).SendKeys("substituicao");
             driver.FindElement(By.LinkText("SUBSTITUICAO DE ITEM")).Click();
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
-            js.ExecuteScript("window.scrollTo(0,123)");
+            driver.ExecuteJavaScript("window.scrollTo(0,123)");
             driver.FindElement(By.LinkText("Seguro")).Click();
             #endregion
 

@@ -2,13 +2,15 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.Extensions;
 
 namespace Automacao
 {
     [TestClass]
     public class AutomacaoComissao
     {
-        public AutomacaoComissao()
+        [TestMethod]
+        public void AutomacaoDeComissao()
         {
             #region Abrir o Chrome
             //inicializando o chrome
@@ -55,7 +57,7 @@ namespace Automacao
             driver.FindElement(By.CssSelector(".btn-success:nth-child(2)")).Click();
             driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > td .check")).Click();
             driver.FindElement(By.CssSelector(".btn-md")).Click();
-            js.ExecuteScript("window.scrollTo(0,0)");
+            driver.ExecuteJavaScript("window.scrollTo(0,0)");
             driver.FindElement(By.CssSelector(".ngdialog-overlay")).Click();
             driver.FindElement(By.CssSelector(".btn-md")).Click();
             #endregion

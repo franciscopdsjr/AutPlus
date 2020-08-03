@@ -2,13 +2,15 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.Extensions;
 
 namespace Portal
 {
     [TestClass]
     public class CadastrarSinistro
     {
-        public CadastrarSinistro()
+        [TestMethod]
+        public void CadastraSinistro()
         {
             #region Abrir o Chrome
             //inicializando o chrome
@@ -66,9 +68,9 @@ namespace Portal
             driver.FindElement(By.LinkText("Apólice")).Click();
             driver.FindElement(By.CssSelector(".paddingDetalhes")).Click();
             driver.FindElement(By.LinkText("Sinistros")).Click();
-            js.ExecuteScript("window.scroll(0,75)");
+            driver.ExecuteJavaScript("window.scroll(0,75)");
             driver.FindElement(By.CssSelector(".btn-raised")).Click();
-            js.ExecuteScript("window.scroll(0,100)");
+            driver.ExecuteJavaScript("window.scroll(0,100)");
             driver.FindElement(By.Name("frmAutoFormdocumentosSinistrosundefined_edt_sin_data_sinistro")).Click();
             driver.FindElement(By.CssSelector(".today")).Click();
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();

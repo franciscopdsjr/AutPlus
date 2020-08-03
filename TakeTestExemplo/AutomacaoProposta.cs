@@ -2,13 +2,15 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.Extensions;
 
 namespace Automacao
 {
     [TestClass]
     public class AutomacaoProposta
     {
-        public AutomacaoProposta()
+        [TestMethod]
+        public void AutomacaoDeProposta()
         {
             #region Abrir o Chrome
             //inicializando o chrome
@@ -52,7 +54,7 @@ namespace Automacao
             driver.FindElement(By.CssSelector(".btn-success:nth-child(2)")).Click();
             driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > td .check")).Click();
             driver.FindElement(By.CssSelector(".btn-md")).Click();
-            js.ExecuteScript("window.scrollTo(0,0)");
+            driver.ExecuteJavaScript("window.scrollTo(0,0)");
             driver.FindElement(By.CssSelector(".ngdialog-overlay")).Click();
             driver.FindElement(By.CssSelector(".btn-md")).Click();
             driver.FindElement(By.CssSelector(".zmdi-edit")).Click();
@@ -64,7 +66,7 @@ namespace Automacao
             driver.FindElement(By.CssSelector("strong")).Click();
             driver.FindElement(By.CssSelector(".row:nth-child(10) > .col-lg-12:nth-child(1) #comboundefined")).Click();
             driver.FindElement(By.CssSelector(".row:nth-child(10) > .col-lg-12:nth-child(1) #comboundefined")).SendKeys("francisco");
-            js.ExecuteScript("window.scroll(0,1000)");
+            driver.ExecuteJavaScript("window.scroll(0,1000)");
             driver.FindElement(By.CssSelector("strong")).Click();
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(8) > .pull-right:nth-child(1)")).Click();
             #endregion

@@ -1,17 +1,16 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.Extensions;
 
 namespace Cash
 {
     [TestClass]
     public class PagamentoCash
     {
-        public PagamentoCash()
+        [TestMethod]
+        public void PagamentCash()
         {
             #region Abrir o Chrome
             //inicializando o chrome
@@ -53,7 +52,7 @@ namespace Cash
             driver.FindElement(By.Id("botaoMenu")).Click();
             driver.FindElement(By.LinkText("Cash Flow")).Click();
             driver.FindElement(By.CssSelector("div:nth-child(3) > .menu > .menu-item:nth-child(17) > .expandida > .menu > .menu-item:nth-child(1) .ng-binding")).Click();
-            js.ExecuteScript("window.scroll(0,0)");
+            driver.ExecuteJavaScript("window.scroll(0,0)");
             driver.FindElement(By.CssSelector(".btn-raised")).Click();
             driver.FindElement(By.LinkText("VIRTUAL")).Click();
             driver.FindElement(By.Name("frmAutoFormcashFlowLancamentosFinanceirosundefined_edt_cta_codigo")).Click();

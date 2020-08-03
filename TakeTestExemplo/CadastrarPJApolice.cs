@@ -2,13 +2,15 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.Extensions;
 
 namespace Portal
 {
     [TestClass]
     public class CadastrarPJApolice
     {
-        public CadastrarPJApolice()
+        [TestMethod]
+        public void CadastraPJApolice()
         {
             #region Abrir o Chrome
             //inicializando o chrome
@@ -53,7 +55,7 @@ namespace Portal
             driver.FindElement(By.CssSelector(".zmdi-search")).Click();
             driver.FindElement(By.LinkText("Seguros")).Click();
             driver.FindElement(By.CssSelector("#vsRelacao1_gridRelacao_wrapper > div")).Click();
-            js.ExecuteScript("window.scrollTo(0,47)");
+            driver.ExecuteJavaScript("window.scrollTo(0,47)");
             driver.FindElement(By.CssSelector(".btn-success")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_doc_apolice")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_doc_apolice")).SendKeys("123465");
@@ -68,7 +70,7 @@ namespace Portal
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_doc_data_entrada")).Click();
             driver.FindElement(By.CssSelector(".today")).Click();
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
-            js.ExecuteScript("window.scrollTo(0,0)");
+            driver.ExecuteJavaScript("window.scrollTo(0,0)");
             #endregion
         }
     }

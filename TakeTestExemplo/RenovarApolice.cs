@@ -8,7 +8,8 @@ namespace Portal
     [TestClass]
     public class RenovarApolice
     {
-        public RenovarApolice()
+        [TestMethod]
+        public void RenovaApolice()
         {
             #region Abrir o Chrome
             //inicializando o chrome

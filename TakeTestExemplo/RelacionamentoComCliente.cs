@@ -2,13 +2,15 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.Extensions;
 
 namespace RelacionamentoCliente
 {
     [TestClass]
     public class RelacionamentoComCliente
     {
-        public RelacionamentoComCliente()
+        [TestMethod]
+        public void RelacionamentosComCliente()
         {
             #region Abrir o Chrome
             //inicializando o chrome
@@ -67,7 +69,7 @@ namespace RelacionamentoCliente
             driver.FindElement(By.LinkText("Dados do documento")).Click();
             driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_doc_apolice")).Click();
             driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_doc_apolice")).SendKeys("VariosItens");
-            js.ExecuteScript("window.scroll(0,1000)");
+            driver.ExecuteJavaScript("window.scroll(0,1000)");
             driver.FindElement(By.CssSelector(".btn-default")).Click();
             driver.FindElement(By.CssSelector(".check")).Click();
             driver.FindElement(By.CssSelector(".check")).Click();

@@ -2,13 +2,15 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.Extensions;
 
 namespace Portal
 {
     [TestClass]
     public class CadastrarPJProposta
     {
-        public CadastrarPJProposta()
+        [TestMethod]
+        public void CadastraPJProposta()
         {
             #region Abrir o Chrome
             //inicializando o chrome
@@ -52,7 +54,7 @@ namespace Portal
             driver.FindElement(By.CssSelector(".ng-touched")).SendKeys("monstros sa");
             driver.FindElement(By.CssSelector(".zmdi-search")).Click();
             driver.FindElement(By.LinkText("Seguros")).Click();
-            js.ExecuteScript("window.scrollTo(0,47)");
+            driver.ExecuteJavaScript("window.scrollTo(0,47)");
             driver.FindElement(By.CssSelector(".btn-success")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_cia_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_cia_codigo")).SendKeys("porto");
@@ -64,7 +66,7 @@ namespace Portal
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).Click();
             driver.FindElement(By.LinkText("MATRIZ")).Click();
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
-            js.ExecuteScript("window.scrollTo(0,0)");
+            driver.ExecuteJavaScript("window.scrollTo(0,0)");
             #endregion
         }
     }
