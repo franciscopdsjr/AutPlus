@@ -6,9 +6,6 @@ using OpenQA.Selenium.Support.Extensions;
 
 namespace Cash
 {
-    /// <summary>
-    /// Descrição resumida para ConciliaCashExtrato
-    /// </summary>
     [TestClass]
     public class ConciliaCashExtrato
     {
