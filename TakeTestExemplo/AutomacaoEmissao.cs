@@ -31,7 +31,7 @@ namespace Automacao
             {
                 var elemento = driver.FindElement(By.CssSelector(".efeitoOverlay"));
                 Actions builder = new Actions(driver);
-                builder.MoveToElement(elemento).Release().Perform();
+                //builder.MoveToElement(elemento).Release().Perform();
             }
             driver.FindElement(By.CssSelector(".container-fluid")).Click();
             driver.FindElement(By.CssSelector(".ng-scope > .animated")).Click();
@@ -49,27 +49,59 @@ namespace Automacao
             #endregion
 
             #region Automação de emissão
-            driver.FindElement(By.CssSelector(".icon-newsletters:nth-child(2)")).Click();
-            driver.FindElement(By.CssSelector(".logoNormal:nth-child(5) .col-xs-10")).Click();
-            driver.FindElement(By.CssSelector(".btn-success:nth-child(2)")).Click();
-            driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > td .check")).Click();
+            //Clica em Automação de emissão
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            driver.FindElement(By.CssSelector("a:nth-child(4)")).Click();
+
+            //Seleciona a cia
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            driver.ExecuteJavaScript("window.scroll(0,1000)");//Scroll na tela
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div > div.col-xs-10")).Click();
+
+            //Desmarca
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div:nth-child(4) > div > div.clearfix.card-header.bg-card-teal > div > spam:nth-child(2)")).Click();
+
+            //Marcar somente um
+            driver.ExecuteJavaScript("window.scrollTo(0,1000)");
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div:nth-child(4) > div > div.card-body.card-padding.row.scroll-arquivos > div > div:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(1) > vs-editavel3 > div > label > span")).Click();
+
+            //Continuar
             driver.FindElement(By.CssSelector(".btn-md")).Click();
-            driver.ExecuteJavaScript("window.scrollTo(0,0)");
-            driver.FindElement(By.CssSelector(".ngdialog-overlay")).Click();
+
+            //Clica para sair da mensagem
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.CssSelector("div.ngdialog-overlay")).Click();
+
+            //Gravar
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".btn-md")).Click();
-            driver.FindElement(By.CssSelector(".zmdi-edit")).Click();
+
+            //Editar (Lápis)
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(3) > div.card-virtual > div.card-body.card-padding > table > tbody > tr > td:nth-child(8) > div:nth-child(1) > span:nth-child(1)")).Click();
+
+            //Ponto de venda
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(2) > .col-lg-3:nth-child(3) #comboundefined")).Click();
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(2) > .col-lg-3:nth-child(3) #comboundefined")).SendKeys("matriz");
             driver.FindElement(By.CssSelector("strong")).Click();
+
+            //Origem
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(4) #comboundefined")).Click();
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(4) #comboundefined")).SendKeys("geral");
             driver.FindElement(By.CssSelector("strong")).Click();
+
+            //Comissao
             driver.FindElement(By.CssSelector(".ng-invalid .form-control")).Click();
             driver.FindElement(By.CssSelector(".ng-invalid .form-control")).SendKeys("20");
+
+            //Vendedor
             driver.ExecuteJavaScript("window.scroll(0,2000)");
             driver.FindElement(By.CssSelector(".row:nth-child(10) > .col-lg-12:nth-child(1) #comboundefined")).Click();
             driver.FindElement(By.CssSelector(".row:nth-child(10) > .col-lg-12:nth-child(1) #comboundefined")).SendKeys("francisco");
             driver.FindElement(By.CssSelector("strong")).Click();
+
+            //Salvar
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(8) > .pull-right:nth-child(1)")).Click();
             #endregion
 
