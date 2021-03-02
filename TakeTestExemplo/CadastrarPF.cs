@@ -41,7 +41,6 @@ namespace Portal
             {
                 var dropdown = driver.FindElement(By.CssSelector(".ng-scope > .animated"));
                 dropdown.FindElement(By.XPath("/html/body/div[5]/div[2]/div[2]/div/div/div/div/div/div[2]/div[2]/select/option[3]")).Click();
-                //driver.Quit();
             }
 
             driver.FindElement(By.CssSelector(".ng-scope > .animated")).Click();
@@ -52,7 +51,7 @@ namespace Portal
             #endregion
 
             #region Cadastrar Cliente PF
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.Id("botaoMenu")).Click();
             System.Threading.Thread.Sleep(1000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("div:nth-child(3) > ul > li:nth-child(2) > a > span")).Click();
@@ -93,6 +92,9 @@ namespace Portal
             driver.FindElement(By.CssSelector(".container-fluid")).Click();
             driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_ender_numero")).SendKeys("350");
             driver.FindElement(By.CssSelector("div:nth-child(2) > .btn > span:nth-child(2)")).Click();
+            
+            //Fecha o navegador
+            driver.Quit();
         }
         #endregion
     }

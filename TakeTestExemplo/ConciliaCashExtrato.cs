@@ -49,27 +49,42 @@ namespace Cash
             #endregion
 
             #region Cociliação de extrato
+            //Botao Menu
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.Id("botaoMenu")).Click();
-            driver.FindElement(By.CssSelector("div:nth-child(3) > .menu > .menu-item:nth-child(17) > .menu-span > .zmdi-caret-down")).Click();
+            
+            //Seleciona o Cash
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/nav/div[2]/div/input")).SendKeys("CASH");
+            driver.FindElement(By.XPath("/html/body/div[5]/nav/div[3]/ul/li/a/span")).Click();
+
+            //Seleciona Lançamentos
             driver.FindElement(By.LinkText("Lançamentos")).Click();
-            {
-                var element = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[1]/div/ul/li[2]/div[2]/div"));
-                Actions builder = new Actions(driver);
-                builder.MoveToElement(element).Perform();
-            }
-            driver.FindElement(By.CssSelector(".var_nav:nth-child(2) span")).Click();
-            driver.FindElement(By.CssSelector(".ng-isolate-scope:nth-child(1) > .radioCard > span")).Click();
-            driver.FindElement(By.Id("comboundefined")).Click();
-            driver.FindElement(By.Id("comboundefined")).SendKeys("bradesc");
-            driver.FindElement(By.LinkText("BRADESCO")).Click();
-            driver.FindElement(By.CssSelector(".btn-flat")).Click();
-            driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > .noPadding .check")).Click();
-            driver.FindElement(By.Id("comboundefined")).Click();
-            driver.FindElement(By.Id("comboundefined")).SendKeys("conta bb");
+
+            //Incluir
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[3]/div[2]/div/div/vs-relacao3/div/div/div/div/div/div/div[1]/button")).Click();
+
+            //Empresa
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.Name("frmAutoFormcashFlowLancamentosFinanceirosundefined_edt_emp_codigo")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[3]/div[1]/form/div[1]/div/div[2]/div[1]/div/div/vs-editavel3/div/ul/li[1]/a")).Click();
+
+            //Vencimento
+            driver.FindElement(By.Name("frmAutoFormcashFlowLancamentosFinanceirosundefined_edt_lb_data")).Click();
+            driver.FindElement(By.CssSelector(".today")).Click();
+
+            //Conta
+            driver.FindElement(By.Name("frmAutoFormcashFlowLancamentosFinanceirosundefined_edt_cta_codigo")).SendKeys("conta bb");
             driver.FindElement(By.LinkText("CONTA BB")).Click();
-            driver.ExecuteJavaScript("window.scroll(0,1000)");
-            driver.FindElement(By.CssSelector(".card-body > .btn")).Click();
-            driver.FindElement(By.CssSelector(".btn-flat:nth-child(1)")).Click();
+
+            //Conciliacao
+            driver.FindElement(By.Name("frmAutoFormcashFlowLancamentosFinanceirosundefined_edt_lb_data_conciliacao")).Click();
+            driver.FindElement(By.CssSelector(".today")).Click();
+           
+            //Salva
+            driver.FindElement(By.CssSelector("body > div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(3) > vs-botoes3 > div > div > div:nth-child(2) > button.btn.btn-flat.btn-default.botoes-bottom-verde")).Click();
+            
             #endregion
         }
     }

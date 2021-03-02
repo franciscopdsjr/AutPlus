@@ -3,6 +3,11 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.Extensions;
+using com.sun.tools.@internal.xjc;
+using java.util.concurrent;
+using System;
+using java.lang;
+using String = System.String;
 
 namespace Portal
 {
@@ -12,6 +17,7 @@ namespace Portal
         [TestMethod]
         public void CadastraDocMaisVendedor()
         {
+
             #region Abrir o Chrome
             //inicializando o chrome
             IWebDriver driver = new ChromeDriver();
@@ -31,7 +37,7 @@ namespace Portal
             {
                 var elemento = driver.FindElement(By.CssSelector(".efeitoOverlay"));
                 Actions builder = new Actions(driver);
-                builder.MoveToElement(elemento).Release().Perform();
+                //builder.MoveToElement(elemento).Release().Perform();
             }
             driver.FindElement(By.CssSelector(".container-fluid")).Click();
             driver.FindElement(By.CssSelector(".ng-scope > .animated")).Click();
@@ -49,30 +55,55 @@ namespace Portal
             #endregion
 
             #region Cadastrar Documento com mais de um vendedor
-            driver.FindElement(By.CssSelector(".col-lg-4:nth-child(3) > div")).Click();
-            driver.FindElement(By.CssSelector(".ng-touched")).Click();
-            driver.FindElement(By.CssSelector(".ng-touched")).SendKeys("fausto silva");
-            driver.FindElement(By.CssSelector(".zmdi-search")).Click();
-            driver.FindElement(By.CssSelector(".list-virtual:nth-child(1) h3 > .ng-binding")).Click();
-            driver.FindElement(By.LinkText("Seguros")).Click();
-            driver.ExecuteJavaScript("window.scroll(0,0)");
-            driver.FindElement(By.CssSelector(".btn-success")).Click();
-            driver.ExecuteJavaScript("window.scrollTo(0,0)");
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            //Busca o cliente
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div/input")).SendKeys("fausto silva");
+            //Clica na busca
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div:nth-child(1) > vs-portal-consultas-directive > div > div > div > div:nth-child(3) > div > span > button")).Click();
+
+            //Selecionar o cliente buscado
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div > div.col-sm-12.col-lg-9 > div > div > div:nth-child(2) > div.col-lg-12.col-md-12.col-sm-12 > div > div.card-body.card-padding.ng-scope > div > div:nth-child(1) > div > h3 > a")).Click();
+
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            //Clicar em Seguros
+            driver.FindElement(By.XPath("/html/body/div[5]/div[1]/nav/div[3]/div/vs-menu-responsivo/div/div[2]/div/div/ul/li[2]/a")).Click();
+
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            //Clicar em Incluir
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/vs-relacao3/div/div/div/div/div/div/div[1]/button")).Click();
+
+            //Seleciona a cia
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_cia_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_cia_codigo")).SendKeys("porto");
             driver.FindElement(By.CssSelector("strong")).Click();
+
+            //Seleciona o Produto
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_ramo_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_ramo_codigo")).SendKeys("AERO");
             driver.FindElement(By.CssSelector("strong")).Click();
+
+            //Seleciona Origem
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_docori_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_docori_codigo")).SendKeys("geral");
             driver.FindElement(By.CssSelector("strong")).Click();
+
+            //Seleciona Ponto de Venda
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).Click();
+            driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).Clear();//Limpar o Campo
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).SendKeys("matriz");
             driver.FindElement(By.CssSelector("strong")).Click();
+
+            //Salvar
             driver.FindElement(By.CssSelector(".container-fluid > .row")).Click();
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
-            driver.ExecuteJavaScript("window.scrollTo(0,0)");
+
+            //MouseOver pra selecionar o Botão valores
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(180);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(20000);//Aguardando a pagina carregar
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).Click();
             {
                 var element = driver.FindElement(By.CssSelector(".var_nav:nth-child(6) span"));
@@ -84,23 +115,44 @@ namespace Portal
                 Actions builder = new Actions(driver);
                 builder.MoveToElement(element).Perform();
             }
+
+            //Valores
             driver.FindElement(By.LinkText("Valores")).Click();
-            driver.FindElement(By.CssSelector(".card-botoes > .btn:nth-child(1)")).Click();
-            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_qtd_parcelas")).Click();
-            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_qtd_parcelas")).SendKeys("5");
-            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_perc_comissao_total")).Click();
-            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_perc_comissao_total")).SendKeys("20");
-            driver.ExecuteJavaScript("window.scroll(0,1000)");
-            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_premio_liquido")).Click();
-            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_premio_liquido")).SendKeys("2000");
+
+            //Clicar no Editar
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[5]/div[3]/div[2]/div/div/vs-botoes3/div/div/div[1]/button[1]")).Click();
+
+            //Parcelas
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_qtd_parcelas")).SendKeys("5,0");
+
+            //Comissão Total
+            driver.ExecuteJavaScript("window.scroll(0,1000)");//Scroll na página
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_perc_comissao_total")).Clear();
+            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_perc_comissao_total")).SendKeys("20,00");
+            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_perc_comissao")).Clear();
+            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_perc_comissao")).SendKeys("20,00");
+
+            //Premio
+            //driver.ExecuteJavaScript("window.scroll(0,1000)");
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_premio_liquido")).SendKeys("2.000");
+            driver.FindElement(By.Name("frmAutoFormdocumentosValoresundefined_edt_doc_premio_total")).SendKeys("2.147,60");
+
+            //Salvar
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
             {
                 var element = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[1]/div/ul/li[6]/div[2]/div"));
                 Actions builder = new Actions(driver);
                 builder.MoveToElement(element).Perform();
             }
+            //Repasses
             driver.FindElement(By.LinkText("Repasses")).Click();
             driver.FindElement(By.CssSelector(".confirm")).Click();
+
+            //Incluir
             driver.FindElement(By.CssSelector(".btn-raised")).Click();
             driver.FindElement(By.Id("comboundefined")).Click();
             driver.FindElement(By.Id("comboundefined")).SendKeys("francisco teste");
@@ -118,10 +170,16 @@ namespace Portal
                 Actions builder = new Actions(driver);
                 builder.MoveToElement(element).Perform();
             }
+
+            //Cadastrando segundo vendedor
             driver.FindElement(By.LinkText("Repasses")).Click();
-            driver.ExecuteJavaScript("window.scroll(0,75)");
-            driver.FindElement(By.CssSelector(".btn-raised")).Click();
-            driver.FindElement(By.Id("comboundefined")).SendKeys("francisco");
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[5]/div[2]/vs-relacao3/div/div/div/div/div/div/div[1]/button")).Click();
+            driver.FindElement(By.Id("comboundefined")).SendKeys("f");
+            driver.FindElement(By.Id("comboundefined")).SendKeys("r");
+            driver.FindElement(By.Id("comboundefined")).SendKeys("a");
+            driver.FindElement(By.Id("comboundefined")).SendKeys("n");
+            driver.FindElement(By.Id("comboundefined")).SendKeys("c");
             driver.FindElement(By.LinkText("FRANCISCO")).Click();
             driver.FindElement(By.CssSelector("div:nth-child(1) > .col-md-6")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosRepasseundefined_edt_rep_percentual")).SendKeys("50");
@@ -132,7 +190,8 @@ namespace Portal
                 builder.MoveToElement(element).Perform();
             }
             #endregion
-
+            //Fecha o navegador
+            driver.Quit();
         }
     }
 }

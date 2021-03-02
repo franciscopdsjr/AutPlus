@@ -38,7 +38,6 @@ namespace Automacao
             {
                 var dropdown = driver.FindElement(By.CssSelector(".ng-scope > .animated"));
                 dropdown.FindElement(By.XPath("/html/body/div[5]/div[2]/div[2]/div/div/div/div/div/div[2]/div[2]/select/option[3]")).Click();
-                //driver.Quit();
             }
 
             driver.FindElement(By.CssSelector(".ng-scope > .animated")).Click();
@@ -56,7 +55,7 @@ namespace Automacao
             //Seleciona a cia
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.ExecuteJavaScript("window.scroll(0,1000)");//Scroll na tela
-            driver.FindElement(By.CssSelector("div:nth-child(5) > div > div.col-xs-10")).Click();
+            driver.FindElement(By.CssSelector("div:nth-child(9) > div > div.col-xs-10")).Click();
 
             //Desmarca
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
@@ -70,15 +69,18 @@ namespace Automacao
             driver.FindElement(By.CssSelector(".btn-md")).Click();
 
             //Clica para sair da mensagem
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector("div.ngdialog-overlay")).Click();
+            System.Threading.Thread.Sleep(9000);//Aguardando a pagina carregar
+            //ESC para fechar a tela de dados da importação
+            Actions action = new Actions(driver);
+            action.SendKeys(Keys.Escape).Perform();
+            //driver.FindElement(By.CssSelector("div.ngdialog-overlay")).Click();
 
             //Gravar
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".btn-md")).Click();
 
             //Editar (Lápis)
-            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(3) > div.card-virtual > div.card-body.card-padding > table > tbody > tr > td:nth-child(8) > div:nth-child(1) > span:nth-child(1)")).Click();
 
             //Ponto de venda
@@ -105,6 +107,8 @@ namespace Automacao
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(8) > .pull-right:nth-child(1)")).Click();
             #endregion
 
+            //Fecha o navegador
+            driver.Quit();
         }
     }
 }

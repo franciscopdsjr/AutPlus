@@ -33,7 +33,7 @@ namespace CentralDeNegocios
             {
                 var elemento = driver.FindElement(By.CssSelector(".efeitoOverlay"));
                 Actions builder = new Actions(driver);
-                builder.MoveToElement(elemento).Release().Perform();
+                //builder.MoveToElement(elemento).Release().Perform();
             }
             driver.FindElement(By.CssSelector(".container-fluid")).Click();
             driver.FindElement(By.CssSelector(".ng-scope > .animated")).Click();
@@ -51,44 +51,34 @@ namespace CentralDeNegocios
             #endregion
 
             #region Fechar Negocio
+            //Buscando negocio cadastrado hoje
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".zmdi-case:nth-child(2)")).Click();
             driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(2) .form-control")).Click();
             driver.FindElement(By.CssSelector(".today")).Click();
-            driver.FindElement(By.CssSelector(".col-xs-4:nth-child(7) .ng-valid-maxlength")).Click();
-            driver.FindElement(By.CssSelector(".col-xs-4:nth-child(7) .ng-valid-maxlength")).Click();
-            driver.FindElement(By.CssSelector(".col-xs-4:nth-child(7) .ng-valid-maxlength")).Click();
-            driver.FindElement(By.CssSelector(".col-xs-4:nth-child(7) .ng-valid-maxlength")).SendKeys(Keys.Up);
-            driver.FindElement(By.CssSelector(".col-xs-4:nth-child(7) .ng-valid-maxlength")).SendKeys(Keys.Up);
-            driver.FindElement(By.CssSelector(".col-xs-4:nth-child(7) .ng-valid-maxlength")).SendKeys(Keys.Up);
-            driver.FindElement(By.CssSelector(".col-xs-4:nth-child(7) .ng-valid-maxlength")).SendKeys(Keys.Up);
-            driver.FindElement(By.CssSelector(".col-xs-4:nth-child(7) .ng-valid-maxlength")).SendKeys(Keys.Up);
-            driver.FindElement(By.CssSelector(".col-xs-4:nth-child(7) .ng-valid-maxlength")).SendKeys(Keys.Tab);
-            driver.FindElement(By.CssSelector(".btn-flat")).Click();
-            driver.FindElement(By.CssSelector(".zmdi-search-in-page")).Click();
+            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(3) .form-control")).Click();
+            driver.FindElement(By.CssSelector(".today")).Click();
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(1) > div:nth-child(2) > div > div > div > button")).Click();
+            //Clicar no negocio que sera fechado
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.CssSelector("tbody > tr > td:nth-child(1) > button > i")).Click();
+            
+            //Fechar negocio
             driver.FindElement(By.LinkText("Fechar negócio")).Click();
-            driver.FindElement(By.CssSelector(".confirm")).Click();
-            driver.FindElement(By.CssSelector(".btn-flat")).Click();
-            {
-                var element = driver.FindElement(By.CssSelector(".btn-flat"));
-                Actions builder = new Actions(driver);
-                builder.MoveToElement(element).Perform();
-            }
-            {
-                var element = driver.FindElement(By.TagName("body"));
-                Actions builder = new Actions(driver);
-                builder.MoveToElement(element, 0, 0).Perform();
-            }
-            driver.FindElement(By.CssSelector(".confirm")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.CssSelector("div:nth-child(73) > div.sweet-alert.show-sweet-alert.visible > button.confirm")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.Name("frmAutoFormfecharNegocioundefined_edt_cn_orc_inicio_vigencia")).Click();
             driver.FindElement(By.CssSelector(".today")).Click();
-            driver.FindElement(By.CssSelector(".paddingCard:nth-child(2)")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            
             driver.FindElement(By.Name("frmAutoFormfecharNegocioundefined_edt_cia_codigo")).Click();
             driver.FindElement(By.LinkText("ALFA")).Click();
-            driver.FindElement(By.CssSelector(".paddingCard:nth-child(2)")).Click();
-            driver.FindElement(By.CssSelector(".btn-flat")).Click();
-            driver.FindElement(By.CssSelector(".btn-raised")).Click();
-            driver.FindElement(By.CssSelector(".btn-raised")).Click();
+
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(5) > div.botoes-bottom.botoes-bottom-calcular-todas.ng-scope > div > div > button")).Click();
             #endregion
+            //Fecha o navegador
+            driver.Quit();
         }
     }
 }

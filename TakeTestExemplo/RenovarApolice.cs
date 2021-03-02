@@ -48,26 +48,33 @@ namespace Portal
             #endregion
 
             #region Renovar Apolice
-            driver.FindElement(By.CssSelector(".col-lg-4:nth-child(3) > div")).Click();
-            driver.FindElement(By.CssSelector(".ng-touched")).Click();
-            driver.FindElement(By.CssSelector(".ng-touched")).SendKeys("fausto silva");
-            driver.FindElement(By.CssSelector(".zmdi-search")).Click();
-            driver.FindElement(By.CssSelector(".list-virtual:nth-child(1) h3 > .ng-binding")).Click();
-            driver.FindElement(By.LinkText("Seguros")).Click();
-            driver.FindElement(By.CssSelector(".zmdi-search-in-page")).Click();
-            driver.FindElement(By.CssSelector(".btn-raised")).Click();
-            {
-                var element = driver.FindElement(By.XPath("/html/body/div[7]/div[2]/button[1]"));
-                Actions builder = new Actions(driver);
-                builder.MoveToElement(element).Perform();
-            }
+            //Realizar a busca
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div/input")).SendKeys("fausto silva");
+
+            //Clicar no busca
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div:nth-child(1) > vs-portal-consultas-directive > div > div > div > div:nth-child(3) > div > span > button")).Click();
+
+            //Clicar no cliente 
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div/div[2]/div/div/div[2]/div[1]/div/div[3]/div/div[1]/div/h3/a")).Click();
+
+            //Clicar em seguros
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[1]/nav/div[3]/div/vs-menu-responsivo/div/div[2]/div/div/ul/li[2]/a")).Click();
+
+            //Clica no documento
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/vs-relacao3/div/div/div/div/div/div/div[2]/div[2]/table/tbody/tr[1]/td[1]/button/i")).Click();
+
+            //Clica em renovar
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[5]/div[1]/div/form/div/div/div[1]/button")).Click();
+
+            //Clicar em Sim
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[7]/div[2]/button[1]")).Click();
-            {
-                var element = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[1]/div/ul/li[3]/div[2]/div"));
-                Actions builder = new Actions(driver);
-                builder.MoveToElement(element).Perform();
-            }
-            driver.FindElement(By.LinkText("Seguros do cliente")).Click();
             #endregion
         }
     }

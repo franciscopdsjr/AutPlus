@@ -49,30 +49,41 @@ namespace Portal
             #endregion
 
             #region Cadastrar Sinistro
-            driver.FindElement(By.CssSelector(".col-lg-4:nth-child(3) > div")).Click();
-            driver.FindElement(By.CssSelector(".ng-touched")).SendKeys("fausto silva");
-            driver.FindElement(By.CssSelector(".zmdi-search")).Click();
-            driver.FindElement(By.CssSelector(".list-virtual:nth-child(1) h3 > .ng-binding")).Click();
-            driver.FindElement(By.LinkText("Seguros")).Click();
-            {
-                var element = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[1]/div/ul/li[4]/div[2]/div"));
-                Actions builder = new Actions(driver);
-                builder.MoveToElement(element).Perform();
-            }
-            driver.FindElement(By.LinkText("Sinistros")).Click();
-            {
-                var element = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[1]/div/ul/li[1]/div[2]/div"));
-                Actions builder = new Actions(driver);
-                builder.MoveToElement(element).Perform();
-            }
-            driver.FindElement(By.LinkText("Apólice")).Click();
-            driver.FindElement(By.CssSelector(".paddingDetalhes")).Click();
-            driver.FindElement(By.LinkText("Sinistros")).Click();
-            driver.ExecuteJavaScript("window.scroll(0,75)");
+            //Seleciona o campo de busca
+            System.Threading.Thread.Sleep(3000);
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div/input")).SendKeys("fausto silva");
+            
+            //Clicar no busca
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div:nth-child(1) > vs-portal-consultas-directive > div > div > div > div:nth-child(3) > div > span > button")).Click();
+
+            //Seleciona o cliente na lista
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div > div.col-sm-12.col-lg-9 > div > div > div:nth-child(2) > div.col-lg-12.col-md-12.col-sm-12 > div > div.card-body.card-padding.ng-scope > div > div:nth-child(1) > div > h3 > a")).Click();
+            
+            //Clicar em seguros
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[1]/nav/div[3]/div/vs-menu-responsivo/div/div[2]/div/div/ul/li[2]/a")).Click();
+
+            //Acessar um documento
+            System.Threading.Thread.Sleep(3000);
+            driver.FindElement(By.CssSelector("tbody > tr.odd > td:nth-child(1) > button")).Click();
+
+            //Clicar em sinistros
+            System.Threading.Thread.Sleep(3000);
+            driver.FindElement(By.CssSelector("div.col-xs-10.col-sm-10.col-lg-10.tab-menu-topo > div > vs-menu-responsivo > div > div.scrtabs-tabs-fixed-container > div > div > ul > li:nth-child(2) > a")).Click();
+
+            //Clicar em incluir
+            System.Threading.Thread.Sleep(3000);
             driver.FindElement(By.CssSelector(".btn-raised")).Click();
             driver.ExecuteJavaScript("window.scroll(0,100)");
+
+            //Clicar em data do sinistro
+            System.Threading.Thread.Sleep(3000);
             driver.FindElement(By.Name("frmAutoFormdocumentosSinistrosundefined_edt_sin_data_sinistro")).Click();
             driver.FindElement(By.CssSelector(".today")).Click();
+
+            //Gravar
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
             #endregion
         }

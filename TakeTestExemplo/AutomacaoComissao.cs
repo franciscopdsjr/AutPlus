@@ -1,8 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using com.sun.org.apache.bcel.@internal.generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
+using OpenQA.Selenium.Support.UI;
+using Telerik.JustMock;
 
 namespace Automacao
 {
@@ -31,7 +34,7 @@ namespace Automacao
             {
                 var elemento = driver.FindElement(By.CssSelector(".efeitoOverlay"));
                 Actions builder = new Actions(driver);
-                builder.MoveToElement(elemento).Release().Perform();
+                //builder.MoveToElement(elemento).Release().Perform();
             }
             driver.FindElement(By.CssSelector(".container-fluid")).Click();
             driver.FindElement(By.CssSelector(".ng-scope > .animated")).Click();
@@ -49,18 +52,45 @@ namespace Automacao
             #endregion
 
             #region Automação de comissão
+            //Seleciona Automação de comissão
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".icon-receipt:nth-child(2)")).Click();
-            driver.FindElement(By.CssSelector(".logoNormal:nth-child(10) .col-xs-10")).Click();
+
+            //Clica na cia "Bradesco"
+            driver.ExecuteJavaScript("window.scroll(0,1000)");//Scroll na página
+            System.Threading.Thread.Sleep(9000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[3]/div[1]/div[2]/div/div[10]")).Click();            
+
+            //Informa corretora
             driver.FindElement(By.Id("comboundefined")).Click();
             driver.FindElement(By.Id("comboundefined")).SendKeys("matriz");
             driver.FindElement(By.CssSelector("strong")).Click();
-            driver.FindElement(By.CssSelector(".btn-success:nth-child(2)")).Click();
+
+            //Desmarcar
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div:nth-child(4) > div > div.clearfix.card-header.bg-card-teal > div > spam:nth-child(2)")).Click();
+
+            //Marcar somente um
+            driver.ExecuteJavaScript("window.scroll(0,1000)");
             driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > td .check")).Click();
+
+            //Continuar
             driver.FindElement(By.CssSelector(".btn-md")).Click();
-            driver.ExecuteJavaScript("window.scrollTo(0,0)");
-            driver.FindElement(By.CssSelector(".ngdialog-overlay")).Click();
-            driver.FindElement(By.CssSelector(".btn-md")).Click();
+
+            //Grava
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
+
+            int a = 20;
+            //ESC para fechar a tela de dados da importação
+            Actions action = new Actions(driver);
+            action.SendKeys(OpenQA.Selenium.Keys.Escape).Perform();
+
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div.botoes-bottom.botoes-bottom-calcular-todas.ng-scope > div > div > button")).Click();
             #endregion
+
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
+            //Fecha o navegador
+            driver.Quit();
         }
     }
 }

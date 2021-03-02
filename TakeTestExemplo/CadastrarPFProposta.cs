@@ -13,7 +13,7 @@ namespace Portal
     public class CadastrarPropostaPF
     {
         [TestMethod]
-        public void TestMethod1()
+        public void CadastraPropostaPF()
         {
             #region Abrir o Chrome
             //inicializando o chrome
@@ -52,31 +52,53 @@ namespace Portal
             #endregion
 
             #region Cadastro de Proposta PF
-            //Clicar no busca111
-            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div:nth-child(1) > vs-portal-consultas-directive > div > div > div > div:nth-child(3) > div > input")).Click();
-            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div:nth-child(1) > vs-portal-consultas-directive > div > div > div > div:nth-child(3) > div > input")).Click();
-            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div:nth-child(1) > vs-portal-consultas-directive > div > div > div > div:nth-child(3) > div > input")).SendKeys("fausto silva");
+            //Realizar a busca
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div/input")).SendKeys("fausto silva");
+            
+            //Clicar no busca
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div:nth-child(1) > vs-portal-consultas-directive > div > div > div > div:nth-child(3) > div > span > button")).Click();
+            
+            //Clicar no cliente 
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div/div[2]/div/div/div[2]/div[1]/div/div[3]/div/div[1]/div/h3/a")).Click();
+            
+            //Clicar em seguros
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[1]/nav/div[3]/div/vs-menu-responsivo/div/div[2]/div/div/ul/li[2]/a")).Click();
 
+            //Clicar em incluir
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/vs-relacao3/div/div/div/div/div/div/div[1]/button")).Click();
 
-            driver.FindElement(By.CssSelector(".zmdi-search")).Click();
-            driver.FindElement(By.CssSelector(".list-virtual:nth-child(1) h3 > .ng-binding")).Click();
-            driver.FindElement(By.LinkText("Seguros")).Click();
-            driver.ExecuteJavaScript("window.scrollTo(0,47)");
-            driver.FindElement(By.CssSelector(".btn-success")).Click();
+            //seleciona seguradora
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_cia_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_cia_codigo")).SendKeys("porto");
             driver.FindElement(By.CssSelector("strong")).Click();
+            
+            //Seleciona o Produto
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_ramo_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_ramo_codigo")).SendKeys("automoveis");
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.LinkText("AUTOMOVEIS")).Click();
+            
+            //Seleciona a Origem
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_docori_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_docori_codigo")).SendKeys("geral");
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.LinkText("GERAL")).Click();
+            
+            //Seleciona o ponto de vendas
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).Click();
+            driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).Clear();//Deixa o campo vazio
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).SendKeys("matriz");
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.LinkText("MATRIZ")).Click();
+           
+            //Gravar
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
-            driver.ExecuteJavaScript("window.scrollTo(0,0)");
         }
         #endregion
     }

@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
+using System;
 
 namespace Automacao
 {
@@ -38,7 +39,6 @@ namespace Automacao
             {
                 var dropdown = driver.FindElement(By.CssSelector(".ng-scope > .animated"));
                 dropdown.FindElement(By.XPath("/html/body/div[5]/div[2]/div[2]/div/div/div/div/div/div[2]/div[2]/select/option[3]")).Click();
-                //driver.Quit();
             }
 
             driver.FindElement(By.CssSelector(".ng-scope > .animated")).Click();
@@ -55,11 +55,18 @@ namespace Automacao
 
             //Seleciona a Cia
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector("div:nth-child(4) > div > div.col-xs-10")).Click();
+            driver.FindElement(By.CssSelector("div:nth-child(8) > div > div.col-xs-10")).Click();
 
             //Desmarcar
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            try 
+            { 
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div:nth-child(4) > div > div.clearfix.card-header.bg-card-teal > div > spam:nth-child(2)")).Click();
+            }
+            catch (Exception ex)//Caso não tenha o botão desmarcar o sistema irá avisar
+            {
+                throw new Exception("Não há arquivos baixados pelo feeder"+ Environment.NewLine + ex.Message + (ex.InnerException != null ? ex.InnerException.ToString() : String.Empty));
+            }
             driver.ExecuteJavaScript("window.scrollTo(0,1000)");
            
             //Marcar somente um
@@ -69,15 +76,16 @@ namespace Automacao
             driver.FindElement(By.CssSelector(".btn-md")).Click();
 
             //Clique para sair mensagem
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector("div.ngdialog-overlay")).Click();
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
+            Actions action = new Actions(driver);
+            action.SendKeys(Keys.Escape).Perform();
 
             //Gravar
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".btn-md")).Click();
 
             //Editar (lápis)
-            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(9000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(3) > div.card-virtual > div.card-body.card-padding > table > tbody > tr > td:nth-child(7) > div:nth-child(1) > span:nth-child(1)")).Click();
 
             //Ponto de venda
@@ -100,6 +108,9 @@ namespace Automacao
             //Gravar documento
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(8) > .pull-right:nth-child(1)")).Click();
             #endregion
+
+            //Fecha o Navegador
+            driver.Quit();
         }
     }
 }

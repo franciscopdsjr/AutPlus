@@ -52,7 +52,10 @@ namespace CentralDeNegocios
             //Central de Negocios
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[2]/div/a[1]/div/div")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".btn-success")).Click();
+            //Criando o negocio
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".col-lg-3:nth-child(2) .ng-valid-mask")).Click();
             driver.FindElement(By.CssSelector(".col-lg-3:nth-child(2) .ng-valid-mask")).SendKeys("300.300.300-30");
             driver.FindElement(By.CssSelector(".col-lg-3:nth-child(3) #comboundefined")).Click();
@@ -88,6 +91,9 @@ namespace CentralDeNegocios
             driver.FindElement(By.LinkText("FRANCISCO")).Click();
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
             //js.ExecuteScript("window.scrollTo(0,574)");
+
+            //Fecha o navegador
+            driver.Quit();
             #endregion
         }
     }

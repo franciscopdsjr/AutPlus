@@ -47,6 +47,7 @@ namespace Portal
             driver.FindElement(By.CssSelector(".button-login-q")).Click();
             #endregion
 
+            #region Cadastrar PJ
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.Id("botaoMenu")).Click();
             System.Threading.Thread.Sleep(1000);//Aguardando a pagina carregar
@@ -100,7 +101,9 @@ namespace Portal
             driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_ender_numero")).SendKeys("350");
             //Salvar
             driver.FindElement(By.CssSelector("div:nth-child(2) > .btn > span:nth-child(2)")).Click();
-
+            #endregion
+            //Fecha o navegador
+            driver.Quit();
         }
     }
 }

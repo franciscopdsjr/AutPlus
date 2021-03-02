@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
+using System;
 
 namespace Portal
 {
@@ -49,35 +50,64 @@ namespace Portal
             #endregion
 
             #region Cadastrar Endosso
-            driver.FindElement(By.CssSelector(".col-lg-4:nth-child(3) > div")).Click();
-            driver.FindElement(By.CssSelector(".ng-touched")).Click();
-            driver.FindElement(By.CssSelector(".ng-touched")).SendKeys("fausto silva");
-            driver.FindElement(By.CssSelector(".zmdi-search")).Click();
-            driver.FindElement(By.CssSelector(".list-virtual:nth-child(1) h3 > .ng-binding")).Click();
+            //Informa o nome do cliente a ser pesquisado
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div/input")).SendKeys("fausto silva");
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div:nth-child(1) > vs-portal-consultas-directive > div > div > div > div:nth-child(3) > div > span > button")).Click();
+
+            //Seleciona o resultado
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div/div[2]/div/div/div[2]/div[1]/div/div[3]/div/div[1]/div/h3/a")).Click();
+
+            //inicia cadastro de documento
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.LinkText("Seguros")).Click();
+
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".btn-success")).Click();
-            driver.ExecuteJavaScript("window.scrollTo(0,0)");
+
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_cia_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_cia_codigo")).SendKeys("AIG");
             driver.FindElement(By.LinkText("AIG")).Click();
+
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_ramo_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_ramo_codigo")).SendKeys("automoveis");
             driver.FindElement(By.CssSelector("strong")).Click();
+
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_docori_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_docori_codigo")).SendKeys("geral");
             driver.FindElement(By.CssSelector("strong")).Click();
+
+            driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).Click();
+            driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).Clear();//Deixa o campo vazio
+            driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).SendKeys("MATRIZ");
+            driver.FindElement(By.LinkText("MATRIZ")).Click();
+
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
+
+            //aba seguro
+            System.Threading.Thread.Sleep(15000);//Aguardando a pagina carregar
             driver.FindElement(By.LinkText("Seguro")).Click();
-            driver.FindElement(By.CssSelector(".bg-card-teal > .btn")).Click();
-            driver.ExecuteJavaScript("window.scrollTo(0,218)");
+
+            //Novo endosso
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[5]/div[2]/div/div[1]/button")).Click();
+
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_tpmov_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_tpmov_codigo")).SendKeys("substituicao");
             driver.FindElement(By.LinkText("SUBSTITUICAO DE ITEM")).Click();
+
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
             driver.ExecuteJavaScript("window.scrollTo(0,123)");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(9000);//Aguardando a pagina carregar
             driver.FindElement(By.LinkText("Seguro")).Click();
             #endregion
-
+            //Fecha o navegador
+            driver.Quit();
         }
     }
 }
