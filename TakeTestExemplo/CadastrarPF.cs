@@ -58,6 +58,7 @@ namespace Portal
             System.Threading.Thread.Sleep(1000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div > form > div.paddingCard.col-lg-7.col-md-12.col-sm-12.col-xs-12 > div > div.clearfix.card-header.bg-card-teal > button")).Click();
             //Informa Nome
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_cli_nome")).Click();
             driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_cli_nome")).SendKeys("FAUSTO SILVA");
             //Informa CPF
