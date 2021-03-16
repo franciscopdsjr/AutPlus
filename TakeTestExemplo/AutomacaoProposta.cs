@@ -60,7 +60,7 @@ namespace Automacao
             //Desmarcar
             try 
             { 
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div:nth-child(4) > div > div.clearfix.card-header.bg-card-teal > div > spam:nth-child(2)")).Click();
             }
             catch (Exception ex)//Caso não tenha o botão desmarcar o sistema irá avisar

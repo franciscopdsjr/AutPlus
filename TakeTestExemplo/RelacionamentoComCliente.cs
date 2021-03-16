@@ -49,36 +49,66 @@ namespace RelacionamentoCliente
             #endregion
 
             #region Central de relacionamento
+            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("botaoMenu")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector("div:nth-child(3) > .menu > .menu-item:nth-child(8) > .menu-span > .ng-binding")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".menu-item:nth-child(8) > .expandida > .menu > .menu-item:nth-child(1) > .menu-span > .ng-binding")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".menu-item:nth-child(1) .menu-item:nth-child(1) .ng-binding")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("comboundefined")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("comboundefined")).SendKeys("francisco");
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector("strong")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".form-group:nth-child(4) .check")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_data1")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_data1")).SendKeys("24/04/1994");
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_data2")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_data2")).SendKeys("24/04/1994");
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             {
+                System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
                 var element = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[1]/div/ul/li[2]/div[2]/div"));
+                System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
                 Actions builder = new Actions(driver);
+                System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
                 builder.MoveToElement(element).Perform();
             }
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.LinkText("Dados do documento")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_doc_apolice")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_doc_apolice")).SendKeys("VariosItens");
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.ExecuteJavaScript("window.scroll(0,1000)");
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".btn-default")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".check")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".check")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".check")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".btn-default:nth-child(2)")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".col-lg-3 > .ng-pristine span")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".modal-footer > .btn")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".col-sm-12 > .ng-pristine .ng-valid-maxlength")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".ng-touched")).SendKeys("teste regressivo");
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".mfb-component__main-icon--active")).Click();
             #endregion
         }

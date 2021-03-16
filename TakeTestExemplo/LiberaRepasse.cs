@@ -48,19 +48,33 @@ namespace Comissoes
             #endregion
 
             #region Liberar Repasse
+            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("botaoMenu")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("div:nth-child(3) > .menu > .menu-item:nth-child(9) > .menu-span > .ng-binding")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".menu-item:nth-child(9) > .expandida > .menu > .menu-item:nth-child(4) > .menu-span > .ng-binding")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".menu-item:nth-child(9) .menu-item:nth-child(4) .menu-item:nth-child(1) .ng-binding")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[3]/form/div[1]/div/div[2]/div[2]/div/div/vs-editavel3/div/label/span/span")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".btn-flat:nth-child(2)")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.Id("comboundefined")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.Id("comboundefined")).SendKeys("porto");
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("strong")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.Name("frmAutoFormrepasseComissaoLiberacaoRepassesundefined_edt_ramo_codigo")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.Name("frmAutoFormrepasseComissaoLiberacaoRepassesundefined_edt_ramo_codigo")).SendKeys("aeronautico");
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.LinkText("AERONAUTICO")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".btn-flat:nth-child(2)")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".btn-md")).Click();
             #endregion
         }

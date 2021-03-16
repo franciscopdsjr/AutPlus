@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
+using System;
 
 namespace Portal
 {
@@ -15,6 +16,43 @@ namespace Portal
         [TestMethod]
         public void CadastroPF()
         {
+            #region Gera CPF
+            String GerarCpf()
+            {
+                int soma = 0, resto = 0;
+                int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+                int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
+
+                Random rnd = new Random();
+                string semente = rnd.Next(100000000, 999999999).ToString();
+
+                for (int i = 0; i < 9; i++)
+                    soma += int.Parse(semente[i].ToString()) * multiplicador1[i];
+
+                resto = soma % 11;
+                if (resto < 2)
+                    resto = 0;
+                else
+                    resto = 11 - resto;
+
+                semente = semente + resto;
+                soma = 0;
+
+                for (int i = 0; i < 10; i++)
+                    soma += int.Parse(semente[i].ToString()) * multiplicador2[i];
+
+                resto = soma % 11;
+
+                if (resto < 2)
+                    resto = 0;
+                else
+                    resto = 11 - resto;
+
+                semente = semente + resto;
+                return semente;
+            }
+            #endregion
+
             #region Abrir o Chrome
             //inicializando o chrome
             IWebDriver driver = new ChromeDriver();
@@ -62,8 +100,11 @@ namespace Portal
             driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_cli_nome")).Click();
             driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_cli_nome")).SendKeys("FAUSTO SILVA");
             //Informa CPF
+
+            
+
             driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_cli_cpf_cnpj")).Click();
-            driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_cli_cpf_cnpj")).SendKeys("589.050.489-43");
+            driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_cli_cpf_cnpj")).SendKeys(GerarCpf());
             //Informa data nascimento
             driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_cli_data_nascimento")).Click();
             driver.FindElement(By.CssSelector(".today")).Click();

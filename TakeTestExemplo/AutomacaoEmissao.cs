@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
-
+using OpenQA.Selenium.Support.UI;
 namespace Automacao
 {
     [TestClass]
@@ -49,17 +49,18 @@ namespace Automacao
 
             #region Automação de emissão
             //Clica em Automação de emissão
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("a:nth-child(4)")).Click();
 
             //Seleciona a cia
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
             driver.ExecuteJavaScript("window.scroll(0,1000)");//Scroll na tela
             driver.FindElement(By.CssSelector("div:nth-child(9) > div > div.col-xs-10")).Click();
 
             //Desmarca
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div:nth-child(4) > div > div.clearfix.card-header.bg-card-teal > div > spam:nth-child(2)")).Click();
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[4]/div/div[1]/div/spam[2]")).Click();
+           
 
             //Marcar somente um
             driver.ExecuteJavaScript("window.scrollTo(0,1000)");
@@ -80,8 +81,8 @@ namespace Automacao
             driver.FindElement(By.CssSelector(".btn-md")).Click();
 
             //Editar (Lápis)
-            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(3) > div.card-virtual > div.card-body.card-padding > table > tbody > tr > td:nth-child(8) > div:nth-child(1) > span:nth-child(1)")).Click();
+            System.Threading.Thread.Sleep(7000);//Aguardando a pagina carregar
+            driver.FindElement(By.ClassName("ajustarIndividual(docto)")).Click();
 
             //Ponto de venda
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(2) > .col-lg-3:nth-child(3) #comboundefined")).Click();

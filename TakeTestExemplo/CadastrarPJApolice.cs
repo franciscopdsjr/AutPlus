@@ -53,13 +53,15 @@ namespace Portal
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div")).Click();
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div/input")).SendKeys("monstros sa");
-            
+
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             //Clicar na busca
             driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div:nth-child(1) > vs-portal-consultas-directive > div > div > div > div:nth-child(3) > div > span > button")).Click();
 
             //Clicar em Seguros
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
-            driver.FindElement(By.XPath("/html/body/div[5]/div[1]/nav/div[3]/div/vs-menu-responsivo/div/div[2]/div/div/ul/li[2]/a")).Click();
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div/div[2]/div/div/div[2]/div[1]/div/div[3]/div/div[1]/div/h3/a")).Click();
+            driver.FindElement(By.XPath("//*[@id='menuTopo']/div[3]/div/vs-menu-responsivo/div/div[2]/div/div/ul/li[2]/a")).Click();
 
             //Clicar em incluir
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar

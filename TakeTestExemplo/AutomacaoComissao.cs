@@ -81,6 +81,8 @@ namespace Automacao
             System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
 
             int a = 20;
+
+            int c = a;
             //ESC para fechar a tela de dados da importação
             Actions action = new Actions(driver);
             action.SendKeys(OpenQA.Selenium.Keys.Escape).Perform();

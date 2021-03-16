@@ -48,23 +48,38 @@ namespace Comissoes
             #endregion
 
             #region Processar Extrato
+            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("botaoMenu")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector("div:nth-child(3) > .menu > .menu-item:nth-child(9) > .menu-span > .ng-binding")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".menu-item:nth-child(9) > .expandida > .menu > .menu-item:nth-child(3) > .menu-span > .ng-binding")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".menu-item:nth-child(3) .menu-item:nth-child(3) .ng-binding")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("comboundefined")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("comboundefined")).SendKeys("bradesco");
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector("strong")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.Name("frmAutoFormbaixaExtratoProcessamentoundefined_edt_corretora")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.Name("frmAutoFormbaixaExtratoProcessamentoundefined_edt_corretora")).SendKeys("matriz");
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector("strong")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".btn-default")).Click();
             {
+                System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
                 var element = driver.FindElement(By.XPath("/html/body/div[7]/div[2]/button[1]"));
+                System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
                 Actions builder = new Actions(driver);
                 builder.MoveToElement(element).Perform();
             }
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".confirm")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".btn-default:nth-child(1)")).Click();
             #endregion
         }

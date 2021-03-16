@@ -48,20 +48,33 @@ namespace Comissoes
             #endregion
 
             #region Quitar Repasses
+            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("botaoMenu")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector("div:nth-child(3) > .menu > .menu-item:nth-child(9) > .menu-span > .ng-binding")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.LinkText("Repasse de comissão")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".menu-item:nth-child(9) .menu-item:nth-child(4) .menu-item:nth-child(2) .ng-binding")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("comboundefined")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("comboundefined")).SendKeys("francisco");
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector("strong")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".btn-default:nth-child(2)")).Click();
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".btn:nth-child(3)")).Click();
             {
+                System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar 
                 var element = driver.FindElement(By.XPath("/html/body/div[7]/div[2]/button[1]"));
+                System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
                 Actions builder = new Actions(driver);
+                System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
                 builder.MoveToElement(element).Perform();
             }
+            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".confirm")).Click();
             #endregion
         }

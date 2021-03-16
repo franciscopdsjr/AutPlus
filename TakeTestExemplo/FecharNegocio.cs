@@ -52,20 +52,51 @@ namespace CentralDeNegocios
 
             #region Fechar Negocio
             //Buscando negocio cadastrado hoje
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+
+            int dia = DateTime.Now.Day;
+            int mes = DateTime.Now.Month;
+            int ano = DateTime.Now.Year;
+
+            string agora;
+
+            if (dia < 9)
+            {
+                agora = "0" + dia.ToString();
+                agora = agora + "0" + mes.ToString();
+                agora = agora + ano.ToString();
+            }
+            else
+            {
+                agora =  dia.ToString();
+                agora = agora + "0" + mes.ToString();
+                agora = agora + ano.ToString();
+            }
+
+            
+
+            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".zmdi-case:nth-child(2)")).Click();
             driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(2) .form-control")).Click();
-            driver.FindElement(By.CssSelector(".today")).Click();
+            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(2) .form-control")).SendKeys(Keys.Backspace);
+            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(2) .form-control")).Clear();
+            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(2) .form-control")).SendKeys(agora);
             driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(3) .form-control")).Click();
-            driver.FindElement(By.CssSelector(".today")).Click();
-            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(1) > div:nth-child(2) > div > div > div > button")).Click();
+            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(3) .form-control")).SendKeys(Keys.Backspace);
+            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(3) .form-control")).Clear();
+            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(3) .form-control")).SendKeys(agora);
+            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(3) .form-control")).SendKeys(Keys.Tab);
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[1]/div[2]/div/div[7]/vs-editavel3/div/input")).Clear();
+            //driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(1) > div:nth-child(2) > div > div > div > button")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[2]/div/div/div/button")).Click();
             //Clicar no negocio que sera fechado
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("tbody > tr > td:nth-child(1) > button > i")).Click();
-            
+
             //Fechar negocio
+
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             driver.FindElement(By.LinkText("Fechar negócio")).Click();
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("div:nth-child(73) > div.sweet-alert.show-sweet-alert.visible > button.confirm")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.Name("frmAutoFormfecharNegocioundefined_edt_cn_orc_inicio_vigencia")).Click();
