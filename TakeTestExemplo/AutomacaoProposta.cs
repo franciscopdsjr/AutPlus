@@ -91,11 +91,13 @@ namespace Automacao
             //Ponto de venda
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(2) > .col-lg-3:nth-child(3) #comboundefined")).Click();
+            driver.FindElement(By.CssSelector(".col-lg-12:nth-child(2) > .col-lg-3:nth-child(3) #comboundefined")).Clear();
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(2) > .col-lg-3:nth-child(3) #comboundefined")).SendKeys("matriz");
             driver.FindElement(By.CssSelector("strong")).Click();
             
             //Origem
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(4) #comboundefined")).Click();
+            driver.FindElement(By.CssSelector(".col-lg-12:nth-child(4) #comboundefined")).Clear();
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(4) #comboundefined")).SendKeys("geral");
             driver.FindElement(By.CssSelector("strong")).Click();
             
