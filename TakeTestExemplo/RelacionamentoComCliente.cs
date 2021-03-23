@@ -86,8 +86,9 @@ namespace RelacionamentoCliente
             driver.FindElement(By.LinkText("Dados do documento")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_doc_apolice")).Click();
+            driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_doc_apolice")).Clear();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
-            driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_doc_apolice")).SendKeys("VariosItens");
+           // driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_doc_apolice")).SendKeys("VariosItens");
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.ExecuteJavaScript("window.scroll(0,1000)");
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
@@ -107,7 +108,7 @@ namespace RelacionamentoCliente
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".col-sm-12 > .ng-pristine .ng-valid-maxlength")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
-            driver.FindElement(By.CssSelector(".ng-touched")).SendKeys("teste regressivo");
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/email/div/div/div[3]/div/div/div[2]/div[6]/vs-editavel3/div/input")).SendKeys("teste regressivo");
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".mfb-component__main-icon--active")).Click();
             #endregion
