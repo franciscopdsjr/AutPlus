@@ -330,6 +330,7 @@
     <Compile Include="ConciliaCashExtrato.cs" />
     <Compile Include="FecharNegocio.cs" />
     <Compile Include="LiberaRepasse.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="PagamentoCash.cs" />
     <Compile Include="ProcessaExtrato.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

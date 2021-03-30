@@ -4,6 +4,8 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
+using TakeTestExemplo;
+
 namespace Automacao
 {
     [TestClass]
@@ -40,10 +42,12 @@ namespace Automacao
                 dropdown.FindElement(By.XPath("/html/body/div[5]/div[2]/div[2]/div/div/div/div/div/div[2]/div[2]/select/option[3]")).Click();
             }
 
+            Login login = new Login();
+
             driver.FindElement(By.CssSelector(".ng-scope > .animated")).Click();
             driver.FindElement(By.Id("usuario")).Click();
-            driver.FindElement(By.Id("usuario")).SendKeys("francisco");
-            driver.FindElement(By.Id("senha")).SendKeys("F123456");
+            driver.FindElement(By.Id("usuario")).SendKeys(login.RetornaUsuario());
+            driver.FindElement(By.Id("senha")).SendKeys(login.RetornaSenha());
             driver.FindElement(By.CssSelector(".button-login-q")).Click();
             #endregion
 
@@ -81,8 +85,8 @@ namespace Automacao
             driver.FindElement(By.CssSelector(".btn-md")).Click();
 
             //Editar (Lápis)
-            System.Threading.Thread.Sleep(7000);//Aguardando a pagina carregar
-            driver.FindElement(By.ClassName("ajustarIndividual(docto)")).Click();
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(3) > div.card-virtual > div.card-body.card-padding > table > tbody > tr > td:nth-child(7) > div:nth-child(1) > span:nth-child(1)")).Click();
 
             //Ponto de venda
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(2) > .col-lg-3:nth-child(3) #comboundefined")).Click();

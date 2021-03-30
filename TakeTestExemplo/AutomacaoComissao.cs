@@ -5,6 +5,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
+using TakeTestExemplo;
 using Telerik.JustMock;
 
 namespace Automacao
@@ -43,11 +44,12 @@ namespace Automacao
                 dropdown.FindElement(By.XPath("/html/body/div[5]/div[2]/div[2]/div/div/div/div/div/div[2]/div[2]/select/option[3]")).Click();
                 //driver.Quit();
             }
+            Login login = new Login();
 
             driver.FindElement(By.CssSelector(".ng-scope > .animated")).Click();
             driver.FindElement(By.Id("usuario")).Click();
-            driver.FindElement(By.Id("usuario")).SendKeys("francisco");
-            driver.FindElement(By.Id("senha")).SendKeys("F123456");
+            driver.FindElement(By.Id("usuario")).SendKeys(login.RetornaUsuario());
+            driver.FindElement(By.Id("senha")).SendKeys(login.RetornaSenha());
             driver.FindElement(By.CssSelector(".button-login-q")).Click();
             #endregion
 
