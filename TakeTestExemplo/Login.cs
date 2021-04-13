@@ -8,6 +8,8 @@ namespace TakeTestExemplo
 {
     class Login
     {
+
+        // classe para armazenar o login e senha.
         public string Usuario { get; set; }
 
         public string Senha { get; set; }

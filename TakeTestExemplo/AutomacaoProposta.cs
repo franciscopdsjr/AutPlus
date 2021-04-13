@@ -51,7 +51,7 @@ namespace Automacao
             #endregion
 
             #region Automacao de Proposta
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             //Seleciona Automação
             driver.FindElement(By.CssSelector(".icon-file-empty:nth-child(2)")).Click();
 
@@ -60,20 +60,21 @@ namespace Automacao
             driver.FindElement(By.CssSelector("div:nth-child(8) > div > div.col-xs-10")).Click();
 
             //Desmarcar
-            try 
-            { 
-            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div:nth-child(4) > div > div.clearfix.card-header.bg-card-teal > div > spam:nth-child(2)")).Click();
+            try
+            {
+                System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar
+                driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[4]/div/div[2]/div/div[2]/table/tbody/tr[1]/td[1]/vs-editavel3/div/label")).Click();
+                //driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div:nth-child(4) > div > div.clearfix.card-header.bg-card-teal > div > spam:nth-child(2)")).Click();
             }
             catch (Exception ex)//Caso não tenha o botão desmarcar o sistema irá avisar
             {
-                throw new Exception("Não há arquivos baixados pelo feeder"+ Environment.NewLine + ex.Message + (ex.InnerException != null ? ex.InnerException.ToString() : String.Empty));
+                throw new Exception("Não há arquivos baixados pelo feeder" + Environment.NewLine + ex.Message + (ex.InnerException != null ? ex.InnerException.ToString() : String.Empty));
             }
             driver.ExecuteJavaScript("window.scrollTo(0,1000)");
-           
+
             //Marcar somente um
             driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div:nth-child(4) > div > div.card-body.card-padding.row.scroll-arquivos > div > div:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(1) > vs-editavel3 > div > label > span")).Click();
-            
+
             //Continuar
             driver.FindElement(By.CssSelector(".btn-md")).Click();
 
@@ -83,12 +84,13 @@ namespace Automacao
             action.SendKeys(Keys.Escape).Perform();
 
             //Gravar
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector(".btn-md")).Click();
+            System.Threading.Thread.Sleep(7000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("//*[@id=\"ngdialog1\"]/div[1]")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[5]/div/div/button")).Click();
 
             //Editar (lápis)
-            System.Threading.Thread.Sleep(9000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(3) > div.card-virtual > div.card-body.card-padding > table > tbody > tr > td:nth-child(7) > div:nth-child(1) > span:nth-child(1)")).Click();
+            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[3]/div[1]/div[2]/table/tbody/tr[1]/td[6]/div[1]/span[1]")).Click();
 
             //Ponto de venda
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
@@ -96,19 +98,19 @@ namespace Automacao
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(2) > .col-lg-3:nth-child(3) #comboundefined")).Clear();
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(2) > .col-lg-3:nth-child(3) #comboundefined")).SendKeys("matriz");
             driver.FindElement(By.CssSelector("strong")).Click();
-            
+
             //Origem
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(4) #comboundefined")).Click();
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(4) #comboundefined")).Clear();
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(4) #comboundefined")).SendKeys("geral");
             driver.FindElement(By.CssSelector("strong")).Click();
-            
+
             //Vendedor
             driver.ExecuteJavaScript("window.scroll(0,1000)");//Scroll na tela
             driver.FindElement(By.CssSelector(".row:nth-child(10) > .col-lg-12:nth-child(1) #comboundefined")).Click();
-            driver.FindElement(By.CssSelector(".row:nth-child(10) > .col-lg-12:nth-child(1) #comboundefined")).SendKeys("francisco");            
+            driver.FindElement(By.CssSelector(".row:nth-child(10) > .col-lg-12:nth-child(1) #comboundefined")).SendKeys("francisco");
             driver.FindElement(By.CssSelector("strong")).Click();
-            
+
             //Gravar documento
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(8) > .pull-right:nth-child(1)")).Click();
             #endregion

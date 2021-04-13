@@ -85,8 +85,8 @@ namespace Automacao
             driver.FindElement(By.CssSelector(".btn-md")).Click();
 
             //Editar (Lápis)
-            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(3) > div.card-virtual > div.card-body.card-padding > table > tbody > tr > td:nth-child(7) > div:nth-child(1) > span:nth-child(1)")).Click();
+            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[3]/div[1]/div[2]/table/tbody/tr/td[7]/div[1]/span[1]")).Click();
 
             //Ponto de venda
             driver.FindElement(By.CssSelector(".col-lg-12:nth-child(2) > .col-lg-3:nth-child(3) #comboundefined")).Click();
