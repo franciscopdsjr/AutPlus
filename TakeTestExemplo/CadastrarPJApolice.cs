@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using TakeTestExemplo;
+using TakeTestExemplo.ClassesNavega;
 
 namespace Portal
 {
@@ -105,9 +106,14 @@ namespace Portal
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
             driver.ExecuteJavaScript("window.scrollTo(0,0)");
 
-            //Fecha o navegador
-            driver.Quit();
+
+
             #endregion
+
+            //fechar o navegador saindo do quiverplus
+            MetodosNavega.SairPlus(driver);
+
+            driver.Quit();
         }
     }
 }

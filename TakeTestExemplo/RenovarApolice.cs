@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using TakeTestExemplo;
-
+using TakeTestExemplo.ClassesNavega;
 namespace Portal
 {
     [TestClass]
@@ -79,6 +79,10 @@ namespace Portal
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[7]/div[2]/button[1]")).Click();
             #endregion
+
+            MetodosNavega.SairPlus(driver);
+
+            driver.Quit();
         }
     }
 }

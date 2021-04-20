@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using TakeTestExemplo;
+using TakeTestExemplo.ClassesNavega;
 
 namespace Cash
 {
@@ -111,6 +112,10 @@ namespace Cash
             driver.FindElement(By.CssSelector("body > div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(3) > vs-botoes3 > div > div > div:nth-child(2) > button.btn.btn-flat.btn-default.botoes-bottom-verde")).Click();
 
             #endregion
+
+            MetodosNavega.SairPlus(driver);
+
+            driver.Quit();
         }
     }
 }

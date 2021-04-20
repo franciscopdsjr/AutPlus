@@ -4,7 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using TakeTestExemplo;
-
+using TakeTestExemplo.ClassesNavega;
 namespace Portal
 {
     /// <summary>
@@ -101,7 +101,13 @@ namespace Portal
            
             //Gravar
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
+            #endregion
+            MetodosNavega.SairPlus(driver);
+
+            driver.Quit();
         }
-        #endregion
+        
+
+
     }
 }

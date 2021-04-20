@@ -327,6 +327,7 @@
     <Compile Include="CadastrarPJApolice.cs" />
     <Compile Include="CadastrarPJProposta.cs" />
     <Compile Include="CadastrarSinistro.cs" />
+    <Compile Include="ClassesNavega\MetodosNavega.cs" />
     <Compile Include="ConciliaCashExtrato.cs" />
     <Compile Include="FecharNegocio.cs" />
     <Compile Include="LiberaRepasse.cs" />

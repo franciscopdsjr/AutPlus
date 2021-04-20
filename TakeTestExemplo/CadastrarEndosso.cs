@@ -5,6 +5,7 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using System;
 using TakeTestExemplo;
+using TakeTestExemplo.ClassesNavega;
 
 namespace Portal
 {
@@ -109,6 +110,8 @@ namespace Portal
             driver.FindElement(By.LinkText("Seguro")).Click();
             #endregion
             //Fecha o navegador
+            MetodosNavega.SairPlus(driver);
+
             driver.Quit();
         }
     }

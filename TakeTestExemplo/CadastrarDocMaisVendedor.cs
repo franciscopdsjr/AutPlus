@@ -9,6 +9,7 @@ using System;
 using java.lang;
 using String = System.String;
 using TakeTestExemplo;
+using TakeTestExemplo.ClassesNavega;
 
 namespace Portal
 {
@@ -194,6 +195,8 @@ namespace Portal
             }
             #endregion
             //Fecha o navegador
+            MetodosNavega.SairPlus(driver);
+
             driver.Quit();
         }
     }

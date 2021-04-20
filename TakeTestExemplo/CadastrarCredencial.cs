@@ -3,7 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using TakeTestExemplo;
-
+using TakeTestExemplo.ClassesNavega;
 namespace CentralDeSenhas
 {
     /// <summary>
@@ -124,6 +124,10 @@ namespace CentralDeSenhas
             // Salva 
             driver.FindElement(By.CssSelector(".btn:nth-child(1) > .visible-lg")).Click();
             #endregion
+
+            MetodosNavega.SairPlus(driver);
+
+            driver.Quit();
         }
     }
 }

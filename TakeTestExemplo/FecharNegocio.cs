@@ -6,6 +6,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using TakeTestExemplo;
+using TakeTestExemplo.ClassesNavega;
 
 namespace CentralDeNegocios
 {
@@ -102,15 +103,24 @@ namespace CentralDeNegocios
             driver.FindElement(By.CssSelector("div:nth-child(73) > div.sweet-alert.show-sweet-alert.visible > button.confirm")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.Name("frmAutoFormfecharNegocioundefined_edt_cn_orc_inicio_vigencia")).Click();
-            driver.FindElement(By.CssSelector(".today")).Click();
+            DateTime dataHoje = DateTime.Today;
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[4]/div[1]/div/form/div[2]/div/div[2]/div[1]/div[1]/div/vs-editavel3/div/input")).SendKeys(Keys.Control + "A");
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[4]/div[1]/div/form/div[2]/div/div[2]/div[1]/div[1]/div/vs-editavel3/div/input")).SendKeys(Keys.Delete);
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[4]/div[1]/div/form/div[2]/div/div[2]/div[1]/div[1]/div/vs-editavel3/div/input")).SendKeys(dataHoje.ToShortDateString());
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[4]/div[1]/div/form/div[2]/div/div[2]/div[1]/div[1]/div/vs-editavel3/div/input")).SendKeys(Keys.Tab);
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[4]/div[1]/div/form/div[2]/div/div[2]/div[1]/div[1]/div/vs-editavel3/div/input")).SendKeys(Keys.Tab);
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             
-            driver.FindElement(By.Name("frmAutoFormfecharNegocioundefined_edt_cia_codigo")).Click();
-            driver.FindElement(By.LinkText("ALFA")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[4]/div[1]/div/form/div[2]/div/div[2]/div[3]/div[1]/div/vs-editavel3/div/input")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[4]/div[1]/div/form/div[2]/div/div[2]/div[3]/div[1]/div/vs-editavel3/div/input")).SendKeys(Keys.Down);
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[4]/div[1]/div/form/div[2]/div/div[2]/div[3]/div[1]/div/vs-editavel3/div/input")).SendKeys(Keys.Enter);
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[4]/div[1]/div/form/div[2]/div/div[2]/div[3]/div[1]/div/vs-editavel3/div/input")).SendKeys(Keys.Tab);
 
             driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(5) > div.botoes-bottom.botoes-bottom-calcular-todas.ng-scope > div > div > button")).Click();
             #endregion
             //Fecha o navegador
+            MetodosNavega.SairPlus(driver);
+
             driver.Quit();
         }
     }

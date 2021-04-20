@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using TakeTestExemplo;
+using TakeTestExemplo.ClassesNavega;
 
 namespace CentralDeNegocios
 {
@@ -95,8 +96,12 @@ namespace CentralDeNegocios
             //js.ExecuteScript("window.scrollTo(0,574)");
 
             //Fecha o navegador
-            driver.Quit();
+         
             #endregion
+
+            MetodosNavega.SairPlus(driver);
+
+            driver.Quit();
         }
     }
 }

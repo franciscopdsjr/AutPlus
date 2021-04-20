@@ -5,7 +5,7 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using TakeTestExemplo;
-
+using TakeTestExemplo.ClassesNavega;
 namespace Automacao
 {
     [TestClass]
@@ -62,7 +62,7 @@ namespace Automacao
             driver.FindElement(By.CssSelector("div:nth-child(9) > div > div.col-xs-10")).Click();
 
             //Desmarca
-            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(8000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[4]/div/div[1]/div/spam[2]")).Click();
            
 
@@ -85,7 +85,7 @@ namespace Automacao
             driver.FindElement(By.CssSelector(".btn-md")).Click();
 
             //Editar (Lápis)
-            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(15000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[3]/div[1]/div[2]/table/tbody/tr/td[7]/div[1]/span[1]")).Click();
 
             //Ponto de venda
@@ -113,6 +113,8 @@ namespace Automacao
             #endregion
 
             //Fecha o navegador
+            MetodosNavega.SairPlus(driver);
+
             driver.Quit();
         }
     }

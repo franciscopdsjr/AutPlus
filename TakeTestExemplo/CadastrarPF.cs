@@ -5,7 +5,7 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using System;
 using TakeTestExemplo;
-
+using TakeTestExemplo.ClassesNavega;
 namespace Portal
 {
     /// <summary>
@@ -136,10 +136,12 @@ namespace Portal
             driver.FindElement(By.CssSelector(".container-fluid")).Click();
             driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_ender_numero")).SendKeys("350");
             driver.FindElement(By.CssSelector("div:nth-child(2) > .btn > span:nth-child(2)")).Click();
-            
+            #endregion
             //Fecha o navegador
+            MetodosNavega.SairPlus(driver);
+
             driver.Quit();
         }
-        #endregion
+        
     }
 }

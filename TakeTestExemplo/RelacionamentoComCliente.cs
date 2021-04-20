@@ -4,6 +4,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using TakeTestExemplo;
+using TakeTestExemplo.ClassesNavega;
 
 namespace RelacionamentoCliente
 {
@@ -49,6 +50,8 @@ namespace RelacionamentoCliente
             driver.FindElement(By.Id("senha")).SendKeys(login.RetornaSenha());
             driver.FindElement(By.CssSelector(".button-login-q")).Click();
             #endregion
+
+          
 
             #region Central de relacionamento
             System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar 
@@ -113,7 +116,13 @@ namespace RelacionamentoCliente
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/email/div/div/div[3]/div/div/div[2]/div[6]/vs-editavel3/div/input")).SendKeys("teste regressivo");
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".mfb-component__main-icon--active")).Click();
+            System.Threading.Thread.Sleep(3000);
+            driver.FindElement(By.XPath("/html/body/div[7]/div[2]/button[1]")).Click();
             #endregion
+
+            MetodosNavega.SairPlus(driver);
+           
+            driver.Quit();
         }
     }
 }

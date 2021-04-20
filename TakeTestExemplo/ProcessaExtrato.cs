@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using TakeTestExemplo;
+using TakeTestExemplo.ClassesNavega;
 
 namespace Comissoes
 {
@@ -84,6 +85,10 @@ namespace Comissoes
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".btn-default:nth-child(1)")).Click();
             #endregion
+
+            MetodosNavega.SairPlus(driver);
+
+            driver.Quit();
         }
     }
 }

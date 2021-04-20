@@ -7,7 +7,7 @@ using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using TakeTestExemplo;
 using Telerik.JustMock;
-
+using TakeTestExemplo.ClassesNavega;
 namespace Automacao
 {
     [TestClass]
@@ -69,9 +69,9 @@ namespace Automacao
             driver.FindElement(By.CssSelector("strong")).Click();
 
             //Desmarcar
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div:nth-child(4) > div > div.clearfix.card-header.bg-card-teal > div > spam:nth-child(2)")).Click();
-
+            System.Threading.Thread.Sleep(20000);//Aguardando a pagina carregar
+            //driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div:nth-child(4) > div > div.clearfix.card-header.bg-card-teal > div > spam:nth-child(2)")).Click();
+            //driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[2]/div/div[2]/div[2]/div/div/div[1]/table/tbody/tr/td[1]/vs-editavel3/div/label/input")).Click();
             //Marcar somente um
             driver.ExecuteJavaScript("window.scroll(0,1000)");
             driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > td .check")).Click();
@@ -93,7 +93,9 @@ namespace Automacao
             #endregion
 
             System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
-            //Fecha o navegador
+                                                //Fecha o navegador
+            MetodosNavega.SairPlus(driver);
+
             driver.Quit();
         }
     }
