@@ -194,8 +194,10 @@ namespace Portal
                 builder.MoveToElement(element).Perform();
             }
             #endregion
+            driver.FindElement(By.XPath("//*[@id=\"menuTopo\"]/div[1]/a")).Click();
+            System.Threading.Thread.Sleep(2000);
             //Fecha o navegador
-            MetodosNavega.SairPlus(driver);
+           // MetodosNavega.SairPlus(driver);
 
             driver.Quit();
         }

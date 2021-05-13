@@ -98,7 +98,7 @@ namespace RelacionamentoCliente
             driver.ExecuteJavaScript("window.scroll(0,1000)");
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".btn-default")).Click();
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".check")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".check")).Click();

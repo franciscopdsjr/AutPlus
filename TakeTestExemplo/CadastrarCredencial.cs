@@ -125,7 +125,7 @@ namespace CentralDeSenhas
             driver.FindElement(By.CssSelector(".btn:nth-child(1) > .visible-lg")).Click();
             #endregion
 
-            MetodosNavega.SairPlus(driver);
+           
 
             driver.Quit();
         }

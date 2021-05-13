@@ -96,7 +96,7 @@ namespace Automacao
                 action.SendKeys(Keys.Escape).Perform();
 
                 //Gravar
-                System.Threading.Thread.Sleep(7000);//Aguardando a pagina carregar
+                System.Threading.Thread.Sleep(10000);//Aguardando a pagina carregar
                 driver.FindElement(By.XPath("//*[@id=\"ngdialog1\"]/div[1]")).Click();
                 driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[5]/div/div/button")).Click();
 

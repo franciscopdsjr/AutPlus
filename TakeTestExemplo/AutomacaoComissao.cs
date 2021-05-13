@@ -66,7 +66,8 @@ namespace Automacao
             //Informa corretora
             driver.FindElement(By.Id("comboundefined")).Click();
             driver.FindElement(By.Id("comboundefined")).SendKeys("matriz");
-            driver.FindElement(By.CssSelector("strong")).Click();
+            driver.FindElement(By.Id("comboundefined")).SendKeys(Keys.Tab);
+            
 
             //Desmarcar
             System.Threading.Thread.Sleep(20000);//Aguardando a pagina carregar
@@ -74,22 +75,33 @@ namespace Automacao
             //driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[2]/div/div[2]/div[2]/div/div/div[1]/table/tbody/tr/td[1]/vs-editavel3/div/label/input")).Click();
             //Marcar somente um
             driver.ExecuteJavaScript("window.scroll(0,1000)");
-            driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > td .check")).Click();
 
-            //Continuar
-            driver.FindElement(By.CssSelector(".btn-md")).Click();
+            string semArquivos = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[3]/div/div[2]/div/h5")).Text;
 
-            //Grava
-            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
+            if(semArquivos == "Nenhum arquivo selecionado")
+            {
+                bool valido = true;
+                Assert.IsTrue(valido);
+            }
+            else {
+                driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > td .check")).Click();
 
-            int a = 20;
+                //Continuar
+                driver.FindElement(By.CssSelector(".btn-md")).Click();
 
-            int c = a;
-            //ESC para fechar a tela de dados da importação
-            Actions action = new Actions(driver);
-            action.SendKeys(OpenQA.Selenium.Keys.Escape).Perform();
+                //Grava
+                System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
 
-            driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div.botoes-bottom.botoes-bottom-calcular-todas.ng-scope > div > div > button")).Click();
+                int a = 20;
+
+                int c = a;
+                //ESC para fechar a tela de dados da importação
+                Actions action = new Actions(driver);
+                action.SendKeys(OpenQA.Selenium.Keys.Escape).Perform();
+
+                driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div.botoes-bottom.botoes-bottom-calcular-todas.ng-scope > div > div > button")).Click();
+            }
+
             #endregion
 
             System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar

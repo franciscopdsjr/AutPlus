@@ -58,14 +58,16 @@ namespace CentralDeNegocios
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".btn-success")).Click();
             //Criando o negocio
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".col-lg-3:nth-child(2) .ng-valid-mask")).Click();
             driver.FindElement(By.CssSelector(".col-lg-3:nth-child(2) .ng-valid-mask")).SendKeys("300.300.300-30");
             driver.FindElement(By.CssSelector(".col-lg-3:nth-child(3) #comboundefined")).Click();
             driver.FindElement(By.CssSelector(".col-lg-8:nth-child(1) .card-body")).Click();           
             driver.ExecuteJavaScript("window.scroll(0,1000)");
-            driver.FindElement(By.CssSelector(".col-lg-12:nth-child(2) > .col-lg-6 #comboundefined")).Click();
-            driver.FindElement(By.CssSelector(".col-lg-12:nth-child(2) > .col-lg-6 #comboundefined")).SendKeys("aero");
+            System.Threading.Thread.Sleep(3000);
+            MetodosNavega.NavegaScroll(driver, "//*[@id=\"comboundefined\"]", 2);
+            driver.FindElement(By.XPath("//*[@id=\"comboundefined\"]")).Click();
+            driver.FindElement(By.XPath("//*[@id=\"comboundefined\"]")).SendKeys("aero");
             driver.FindElement(By.LinkText("AERONAUTICO")).Click();
             driver.FindElement(By.CssSelector(".col-lg-3:nth-child(3) .empty")).Click();
             driver.FindElement(By.CssSelector(".today")).Click();
