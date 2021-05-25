@@ -55,10 +55,10 @@ namespace Comissoes
             driver.FindElement(By.Id("botaoMenu")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("div:nth-child(3) > .menu > .menu-item:nth-child(9) > .menu-span > .ng-binding")).Click();
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".menu-item:nth-child(9) > .expandida > .menu > .menu-item:nth-child(4) > .menu-span > .ng-binding")).Click();
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector(".menu-item:nth-child(9) .menu-item:nth-child(4) .menu-item:nth-child(1) .ng-binding")).Click();
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("//*[@id=\"menuEsquerda\"]/div[3]/ul/li[9]/div/ul/li[4]/div/ul/li[1]/a")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[3]/form/div[1]/div/div[2]/div[2]/div/div/vs-editavel3/div/label/span/span")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
@@ -78,7 +78,9 @@ namespace Comissoes
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".btn-flat:nth-child(2)")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector(".btn-md")).Click();
+            IWebElement btnLibera = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[4]/div/div/div/button[2]"));
+            MetodosNavega.NavegaScroll(driver, btnLibera);
+            btnLibera.Click();
             #endregion
 
             MetodosNavega.SairPlus(driver);

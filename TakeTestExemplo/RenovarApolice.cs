@@ -49,6 +49,7 @@ namespace Portal
             driver.FindElement(By.Id("usuario")).SendKeys(login.RetornaUsuario());
             driver.FindElement(By.Id("senha")).SendKeys(login.RetornaSenha());
             driver.FindElement(By.CssSelector(".button-login-q")).Click();
+            bool sucessoNoTeste = false;
             #endregion
 
             #region Renovar Apolice
@@ -65,19 +66,19 @@ namespace Portal
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div/div[2]/div/div/div[2]/div[1]/div/div[3]/div/div[1]/div/h3/a")).Click();
 
             //Clicar em seguros
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[5]/div[1]/nav/div[3]/div/vs-menu-responsivo/div/div[2]/div/div/ul/li[2]/a")).Click();
 
             //Clica no documento
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/vs-relacao3/div/div/div/div/div/div/div[2]/div[2]/table/tbody/tr[1]/td[1]/button/i")).Click();
 
             //Clica em renovar
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[5]/div[1]/div/form/div/div/div[1]/button")).Click();
 
             //Clicar em Sim
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[7]/div[2]/button[1]")).Click();
             #endregion
 
@@ -110,10 +111,13 @@ namespace Portal
             if (btnSalvar == "S")
             {
                 driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[5]/vs-botoes3/div/div/div[2]/button[1]")).Click();
+                sucessoNoTeste = true;
             }
 
-            MetodosNavega.SairPlus(driver);
-
+            if (sucessoNoTeste)
+            {
+                MetodosNavega.SairPlus(driver);
+            }
 
         }
     }

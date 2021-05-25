@@ -68,7 +68,7 @@ namespace Portal
 
             //Selecionar o cliente buscado
             System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar
-           // driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div > div.col-sm-12.col-lg-9 > div > div > div:nth-child(2) > div.col-lg-12.col-md-12.col-sm-12 > div > div.card-body.card-padding.ng-scope > div > div:nth-child(1) > div > h3 > a")).Click();
+                                                // driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div > div.col-sm-12.col-lg-9 > div > div > div:nth-child(2) > div.col-lg-12.col-md-12.col-sm-12 > div > div.card-body.card-padding.ng-scope > div > div:nth-child(1) > div > h3 > a")).Click();
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div/div[2]/div/div/div[2]/div[1]/div/div[3]/div/div[1]/div/h3/a")).Click();
             System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             //Clicar em Seguros
@@ -105,9 +105,10 @@ namespace Portal
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
 
             //MouseOver pra selecionar o Botão valores
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(180);//Aguardando a pagina carregar
+           // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMinutes(3);//Aguardando a pagina carregar
             System.Threading.Thread.Sleep(60000);//Aguardando a pagina carregar
-            driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).Click();
+           //  driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_pto_codigo")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[1]/div/ul/li[4]/div[2]/div")).Click();
             {
                 var element = driver.FindElement(By.CssSelector(".var_nav:nth-child(6) span"));
                 Actions builder = new Actions(driver);
@@ -153,7 +154,10 @@ namespace Portal
                 builder.MoveToElement(element).Perform();
             }
             //Repasses
+            //driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[1]/div/ul/li[5]/div[2]/div")).Click();
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[1]/div/ul/li[6]/div[2]/a")).Click();
+            System.Threading.Thread.Sleep(1500);
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[1]/div/ul/li[6]/div[2]/a/span")).Click();
             driver.FindElement(By.CssSelector(".confirm")).Click();
 
             //Incluir
@@ -197,7 +201,7 @@ namespace Portal
             driver.FindElement(By.XPath("//*[@id=\"menuTopo\"]/div[1]/a")).Click();
             System.Threading.Thread.Sleep(2000);
             //Fecha o navegador
-           // MetodosNavega.SairPlus(driver);
+            // MetodosNavega.SairPlus(driver);
 
             driver.Quit();
         }

@@ -52,18 +52,25 @@ namespace Comissoes
             #region Quitar Repasses
             System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("botaoMenu")).Click();
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
+            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("div:nth-child(3) > .menu > .menu-item:nth-child(9) > .menu-span > .ng-binding")).Click();
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
-            driver.FindElement(By.LinkText("Repasse de comissão")).Click();
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
-            driver.FindElement(By.CssSelector(".menu-item:nth-child(9) .menu-item:nth-child(4) .menu-item:nth-child(2) .ng-binding")).Click();
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+            IWebElement btnQuitaRep = driver.FindElement(By.XPath("/html/body/div[5]/nav/div[3]/ul/li[18]/a"));
+            MetodosNavega.NavegaScroll(driver, btnQuitaRep);
+            System.Threading.Thread.Sleep(2000);
+            driver.FindElement(By.CssSelector(".menu-item:nth-child(9) > .expandida > .menu > .menu-item:nth-child(4) > .menu-span > .ng-binding")).Click();
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("//*[@id=\"menuEsquerda\"]/div[3]/ul/li[9]/div/ul/li[4]/div/ul/li[2]/a")).Click();
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+    
+            System.Threading.Thread.Sleep(1500);
             driver.FindElement(By.Id("comboundefined")).Click();
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("comboundefined")).SendKeys("francisco");
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
-            driver.FindElement(By.CssSelector("strong")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div/form/div[3]/div/div[2]/div[1]/div[1]/div/vs-editavel3/div/ul/li[6]/a")).Click();
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".btn-default:nth-child(2)")).Click();
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 

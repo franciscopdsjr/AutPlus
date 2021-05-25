@@ -92,7 +92,7 @@ namespace Portal
 
             //aba seguro
             System.Threading.Thread.Sleep(15000);//Aguardando a pagina carregar
-            driver.FindElement(By.LinkText("Seguro")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[1]/nav/div[3]/div/vs-menu-responsivo/div/div[2]/div/div/ul/li[1]/a")).Click();
 
             //Novo endosso
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar

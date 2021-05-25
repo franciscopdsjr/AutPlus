@@ -124,7 +124,7 @@ namespace Portal
             //Informa o endereço
             driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_tpender_codigo")).Click();
             driver.FindElement(By.LinkText("Residencial")).Click();
-            driver.FindElement(By.Id("campoCep")).Click();
+            //driver.FindElement(By.Id("campoCep")).Click();
             driver.FindElement(By.Id("campoCep")).SendKeys("84025-350");
 
             {

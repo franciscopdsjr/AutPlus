@@ -136,8 +136,10 @@ namespace Portal
             //Endereço
             driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_tpender_codigo")).Click();
             driver.FindElement(By.Name("frmAutoFormclientesundefined_edt_tpender_codigo")).SendKeys("residencial");
-            driver.FindElement(By.LinkText("Residencial")).Click();
-            driver.FindElement(By.Id("campoCep")).Click();
+            System.Threading.Thread.Sleep(1500);
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div/form/div[5]/div/div[2]/div[2]/div[1]/div/vs-editavel3/div/ul/li/a")).Click();
+            System.Threading.Thread.Sleep(1500);
+//            driver.FindElement(By.Id("campoCep")).Click();
             driver.FindElement(By.Id("campoCep")).SendKeys("84025-350");
             //Quando digita o CEP ele carrega a tela para trazer o endereço
             {
