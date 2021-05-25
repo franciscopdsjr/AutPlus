@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -10,10 +10,10 @@ namespace Portal
     /// <summary>
     /// Descrição resumida para CadastrarPropostaPF
     /// </summary>
-    [TestClass]
+    [TestFixture]
     public class CadastrarPropostaPF
     {
-        [TestMethod]
+        [Test]
         public void CadastraPropostaPF()
         {
             #region Abrir o Chrome

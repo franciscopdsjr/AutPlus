@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -9,10 +9,10 @@ namespace CentralDeSenhas
     /// <summary>
     /// Cadastrar uma credencial na central de senhas
     /// </summary>
-    [TestClass]
+    [TestFixture]
     public class CadastrarCredencial
     {
-        [TestMethod]
+        [Test]
         public void CadastroCredencial()
         {
             #region Abrir o Chrome

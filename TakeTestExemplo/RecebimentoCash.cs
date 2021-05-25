@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -8,10 +8,10 @@ using TakeTestExemplo.ClassesNavega;
 
 namespace Cash
 {
-    [TestClass]
+    [TestFixture]
     public class RecebimentoCash
     {
-        [TestMethod]
+        [Test]
         public void RecebimentosCash()
         {
             #region Abrir o Chrome

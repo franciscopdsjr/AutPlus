@@ -1,5 +1,4 @@
 ﻿using com.sun.org.apache.bcel.@internal.generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -8,12 +7,13 @@ using OpenQA.Selenium.Support.UI;
 using TakeTestExemplo;
 using Telerik.JustMock;
 using TakeTestExemplo.ClassesNavega;
+using NUnit.Framework;
 namespace Automacao
 {
-    [TestClass]
+    [TestFixture]
     public class AutomacaoComissao
     {
-        [TestMethod]
+        [Test]
         public void AutomacaoDeComissao()
         {
             #region Abrir o Chrome

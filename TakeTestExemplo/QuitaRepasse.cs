@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -6,10 +6,10 @@ using TakeTestExemplo;
 using TakeTestExemplo.ClassesNavega;
 namespace Comissoes
 {
-    [TestClass]
+    [TestFixture]
     public class QuitaRepasse
     {
-        [TestMethod]
+        [Test]
         public void QuitarRepasse()
         {
             #region Abrir o Chrome

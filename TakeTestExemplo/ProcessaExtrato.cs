@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -7,10 +7,10 @@ using TakeTestExemplo.ClassesNavega;
 
 namespace Comissoes
 {
-    [TestClass]
+    [TestFixture]
     public class ProcessaExtrato
     {
-        [TestMethod]
+        [Test]
         public void ProcessarExtrato()
         {
             #region Abrir o Chrome

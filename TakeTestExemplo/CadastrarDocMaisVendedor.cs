@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Chrome;
@@ -13,10 +13,10 @@ using TakeTestExemplo.ClassesNavega;
 
 namespace Portal
 {
-    [TestClass]
+    [TestFixture]
     public class CadastrarDocMaisVendedor
     {
-        [TestMethod]
+        [Test]
         public void CadastraDocMaisVendedor()
         {
 

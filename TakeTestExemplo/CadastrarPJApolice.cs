@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -8,10 +8,10 @@ using TakeTestExemplo.ClassesNavega;
 
 namespace Portal
 {
-    [TestClass]
+    [TestFixture]
     public class CadastrarPJApolice
     {
-        [TestMethod]
+        [Test]
         public void CadastraPJApolice()
         {
             #region Abrir o Chrome

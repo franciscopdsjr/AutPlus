@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -7,10 +7,10 @@ using TakeTestExemplo.ClassesNavega;
 
 namespace Portal
 {
-    [TestClass]
+    [TestFixture]
     public class RenovarApolice
     {
-        [TestMethod]
+        [Test]
         public void RenovaApolice()
         {
             #region Abrir o Chrome

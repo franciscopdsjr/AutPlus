@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -11,10 +11,10 @@ namespace Portal
     /// <summary>
     /// Descrição resumida para CadastrarPJ
     /// </summary>
-    [TestClass]
+    [TestFixture]
     public class CadastrarPJ
     {
-        [TestMethod]
+        [Test]
         public void CadastroDePJ()
         {
             #region Gera CNPJ

@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -9,10 +9,10 @@ using TakeTestExemplo.ClassesNavega;
 
 namespace Portal
 {
-    [TestClass]
+    [TestFixture]
     public class CadastrarEndosso
     {
-        [TestMethod]
+        [Test]
         public void CadastraEndosso()
         {
             #region Abrir o Chrome

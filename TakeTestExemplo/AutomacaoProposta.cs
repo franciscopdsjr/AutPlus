@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -9,10 +9,10 @@ using TakeTestExemplo.ClassesNavega;
 
 namespace Automacao
 {
-    [TestClass]
+    [TestFixture]
     public class AutomacaoProposta
     {
-        [TestMethod]
+        [Test]
         public void AutomacaoDeProposta()
         {
             #region Abrir o Chrome

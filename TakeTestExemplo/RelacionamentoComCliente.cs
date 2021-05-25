@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
@@ -8,10 +8,10 @@ using TakeTestExemplo.ClassesNavega;
 
 namespace RelacionamentoCliente
 {
-    [TestClass]
+    [TestFixture]
     public class RelacionamentoComCliente
     {
-        [TestMethod]
+        [Test]
         public void RelacionamentosComCliente()
         {
             #region Abrir o Chrome
