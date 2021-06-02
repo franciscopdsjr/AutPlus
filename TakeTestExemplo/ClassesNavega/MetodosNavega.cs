@@ -12,9 +12,10 @@ namespace TakeTestExemplo.ClassesNavega
     {
         public static IWebDriver SairPlus(IWebDriver driver)
         {
+
             try
             {
-                System.Threading.Thread.Sleep(15000);
+                System.Threading.Thread.Sleep(50000);
                 driver.FindElement(By.XPath("/html/body/div[5]/div[1]/nav/div[1]/button[2]")).Click();
             }
             catch (Exception e)
@@ -22,7 +23,7 @@ namespace TakeTestExemplo.ClassesNavega
 
             }
 
-            System.Threading.Thread.Sleep(15000);
+            System.Threading.Thread.Sleep(50000);
             driver.FindElement(By.XPath("/html/body/div[5]/div[1]/nav/div[1]/div/button")).Click();
             System.Threading.Thread.Sleep(5000);
             driver.FindElement(By.XPath("/html/body/div[5]/div[1]/nav/div[1]/div/ul/li[2]/a")).Click();

@@ -3,6 +3,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
+using OpenQA.Selenium.Support.UI;
+using System;
 using TakeTestExemplo;
 using TakeTestExemplo.ClassesNavega;
 
@@ -31,9 +33,19 @@ namespace RelacionamentoCliente
                 builder.MoveToElement(elemento).ClickAndHold().Perform();
             }
             {
+                try { 
+                System.Threading.Thread.Sleep(5000);
                 var elemento = driver.FindElement(By.CssSelector(".efeitoOverlay"));
                 Actions builder = new Actions(driver);
+                System.Threading.Thread.Sleep(5000);
                 builder.MoveToElement(elemento).Release().Perform();
+                }
+                catch (Exception ex)
+                {
+                    IWebElement comboBase = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[2]/div/div/div/div/div/div[2]/div[2]/select"));
+                    SelectElement optionBase = new SelectElement(comboBase);
+                    optionBase.SelectByValue("Main");
+                }
             }
             driver.FindElement(By.CssSelector(".container-fluid")).Click();
             driver.FindElement(By.CssSelector(".ng-scope > .animated")).Click();
@@ -87,7 +99,7 @@ namespace RelacionamentoCliente
                 System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
                 builder.MoveToElement(element).Perform();
             }
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar 
             driver.FindElement(By.LinkText("Dados do documento")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.Name("frmAutoFormcentralRelacClientesSelecaoundefined_edt_doc_apolice")).Click();
@@ -110,14 +122,14 @@ namespace RelacionamentoCliente
             driver.FindElement(By.CssSelector(".col-lg-3 > .ng-pristine span")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".modal-footer > .btn")).Click();
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".col-sm-12 > .ng-pristine .ng-valid-maxlength")).Click();
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
+            System.Threading.Thread.Sleep(8000);//Aguardando a pagina carregar 
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/email/div/div/div[3]/div/div/div[2]/div[6]/vs-editavel3/div/input")).SendKeys("teste regressivo");
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar 
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".mfb-component__main-icon--active")).Click();
-            System.Threading.Thread.Sleep(3000);
-            driver.FindElement(By.XPath("/html/body/div[7]/div[2]/button[1]")).Click();
+            System.Threading.Thread.Sleep(5000);
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/email/ul/li/a")).Click();
             #endregion
 
             MetodosNavega.SairPlus(driver);

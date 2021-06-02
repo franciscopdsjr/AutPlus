@@ -66,8 +66,8 @@ namespace CentralDeNegocios
             driver.ExecuteJavaScript("window.scroll(0,1000)");
             System.Threading.Thread.Sleep(3000);
             MetodosNavega.NavegaScroll(driver, "//*[@id=\"comboundefined\"]", 2);
-            driver.FindElement(By.XPath("//*[@id=\"comboundefined\"]")).Click();
-            driver.FindElement(By.XPath("//*[@id=\"comboundefined\"]")).SendKeys("aero");
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[3]/div[2]/div/div[2]/div[2]/div[1]/vs-editavel3/div/input")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[3]/div[2]/div/div[2]/div[2]/div[1]/vs-editavel3/div/input")).SendKeys("aero");
             driver.FindElement(By.LinkText("AERONAUTICO")).Click();
             driver.FindElement(By.CssSelector(".col-lg-3:nth-child(3) .empty")).Click();
             driver.FindElement(By.CssSelector(".today")).Click();

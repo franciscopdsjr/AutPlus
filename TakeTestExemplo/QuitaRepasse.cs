@@ -67,10 +67,10 @@ namespace Comissoes
     
             System.Threading.Thread.Sleep(1500);
             driver.FindElement(By.Id("comboundefined")).Click();
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("comboundefined")).SendKeys("francisco");
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
-            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div/form/div[3]/div/div[2]/div[1]/div[1]/div/vs-editavel3/div/ul/li[6]/a")).Click();
+            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar 
+            driver.FindElement(By.LinkText("FRANCISCO")).Click();
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".btn-default:nth-child(2)")).Click();
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
@@ -86,6 +86,13 @@ namespace Comissoes
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".confirm")).Click();
             #endregion
+
+            IWebElement caixaConfirma = driver.FindElement(By.XPath("/html/body/div[7]/div[2]/button[1]"));
+
+            if (caixaConfirma.Displayed)
+            {
+                caixaConfirma.Click();
+            }
 
             MetodosNavega.SairPlus(driver);
 

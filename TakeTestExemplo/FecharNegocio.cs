@@ -77,7 +77,7 @@ namespace CentralDeNegocios
 
             
 
-            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(10000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".zmdi-case:nth-child(2)")).Click();
             driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(2) .form-control")).Click();
             driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(2) .form-control")).SendKeys(Keys.Backspace);

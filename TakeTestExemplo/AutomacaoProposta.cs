@@ -96,13 +96,13 @@ namespace Automacao
                 action.SendKeys(Keys.Escape).Perform();
 
                 //Gravar
-                System.Threading.Thread.Sleep(10000);//Aguardando a pagina carregar
+                System.Threading.Thread.Sleep(20000);//Aguardando a pagina carregar
                 driver.FindElement(By.XPath("//*[@id=\"ngdialog1\"]/div[1]")).Click();
                 driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[5]/div/div/button")).Click();
 
                 //Editar (lápis)
                 System.Threading.Thread.Sleep(15000);//Aguardando a pagina carregar
-                driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[3]/div[1]/div[2]/table/tbody/tr[1]/td[6]/div[1]/span[1]")).Click();
+                driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[3]/div[2]/div/div/button[2]")).Click();
 
                 //Ponto de venda
                 System.Threading.Thread.Sleep(15000);//Aguardando a pagina carregar
