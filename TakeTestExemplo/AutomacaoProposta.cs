@@ -26,6 +26,7 @@ namespace Automacao
             #region Login
             var cnpj = driver.FindElement(By.Id("cnpj"));
             cnpj.SendKeys("72408271000191");
+            System.Threading.Thread.Sleep(8000);
             {
                 var elemento = driver.FindElement(By.CssSelector(".logo-login-q"));
                 Actions builder = new Actions(driver);
@@ -55,12 +56,12 @@ namespace Automacao
             while (sucesso == false)
             {
                 #region Automacao de Proposta
-                System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+                System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
                                                     //Seleciona Automação
                 driver.FindElement(By.CssSelector(".icon-file-empty:nth-child(2)")).Click();
 
                 //Seleciona a Cia
-                System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+                System.Threading.Thread.Sleep(10000);//Aguardando a pagina carregar
                 driver.FindElement(By.CssSelector("div:nth-child(8) > div > div.col-xs-10")).Click();
 
                 //Desmarcar
@@ -89,20 +90,43 @@ namespace Automacao
 
                 //Continuar
                 driver.FindElement(By.CssSelector(".btn-md")).Click();
-
+                System.Threading.Thread.Sleep(50000);
                 //Clique para sair mensagem
                 System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
                 Actions action = new Actions(driver);
                 action.SendKeys(Keys.Escape).Perform();
 
+                
+
                 //Gravar
-                System.Threading.Thread.Sleep(20000);//Aguardando a pagina carregar
-                driver.FindElement(By.XPath("//*[@id=\"ngdialog1\"]/div[1]")).Click();
+                System.Threading.Thread.Sleep(30000);//Aguardando a pagina carregar
+                //if (driver.FindElement(By.XPath("//*[@id=\"ngdialog1\"]/div[1]")).Displayed) { 
+               // driver.FindElement(By.XPath("//*[@id=\"ngdialog1\"]/div[1]")).Click();
+               /// }
                 driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[5]/div/div/button")).Click();
+                System.Threading.Thread.Sleep(10000);
+                bool validaExistCobertura = driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[1]/h3")).Displayed;
+                if (validaExistCobertura)
+                {
+                    if (driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[1]/h3")).Text.ToString().Trim() == "Parametrização de coberturas e parâmetros de importação PDF")
+                    {
+                        string textoCobertura = driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[2]/div/div/table/tbody/tr/td[1]")).Text;
+                        driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[2]/div/div/table/tbody/tr/td[2]/div[3]/div[1]/vs-editavel3/div/input")).SendKeys("cobertura geral robo");
+                        driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[2]/div/div/table/tbody/tr/td[2]/div[3]/div[1]/vs-editavel3/div/input")).SendKeys(Keys.Tab);
+                        driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[2]/div/div/table/tbody/tr/td[2]/div[3]/div[1]/vs-editavel3/div/input")).SendKeys(Keys.Tab);
+                        driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[2]/div/button[1]")).Click();
+                        string textoDeConfirmacao = driver.FindElement(By.XPath("/html/body/div[13]/div[2]/div[3]/div/div/div[1]/div[1]/label")).Text.Trim();
+                        driver.FindElement(By.XPath("/html/body/div[13]/div[2]/div[3]/div/div/div[1]/div[2]/input")).SendKeys(textoDeConfirmacao);
+                        driver.FindElement(By.XPath("/html/body/div[13]/div[2]/div[3]/div/div/div[2]/button")).Click();
+                        System.Threading.Thread.Sleep(8000);
+                    }
+                }
 
                 //Editar (lápis)
                 System.Threading.Thread.Sleep(15000);//Aguardando a pagina carregar
                 driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[3]/div[2]/div/div/button[2]")).Click();
+
+
 
                 //Ponto de venda
                 System.Threading.Thread.Sleep(15000);//Aguardando a pagina carregar

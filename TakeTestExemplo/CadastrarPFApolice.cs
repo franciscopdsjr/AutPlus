@@ -52,25 +52,25 @@ namespace Portal
 
             #region Cadastro de Apolice
             //Busca o cliente
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div")).Click();
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/vs-portal-consultas-directive/div/div/div/div[3]/div/input")).SendKeys("fausto silva");
             //Clica na busca
             driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div:nth-child(1) > vs-portal-consultas-directive > div > div > div > div:nth-child(3) > div > span > button")).Click();
 
             //Selecionar o cliente buscado
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(8000);//Aguardando a pagina carregar
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div/div[2]/div/div/div[2]/div[1]/div/div[3]/div/div[1]/div/h3/a")).Click();
 
-            System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             //Clicar em Seguros
             driver.FindElement(By.XPath("/html/body/div[5]/div[1]/nav/div[3]/div/vs-menu-responsivo/div/div[2]/div/div/ul/li[2]/a")).Click();
             
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(8000);//Aguardando a pagina carregar
             //Clicar em Incluir
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/vs-relacao3/div/div/div/div/div/div/div[1]/button")).Click();
             
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(8000);//Aguardando a pagina carregar
             //Campo Apolice
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_doc_apolice")).Click();
             driver.FindElement(By.Name("frmAutoFormdocumentosundefined_edt_doc_apolice")).SendKeys("123456");
@@ -107,6 +107,8 @@ namespace Portal
             //Salvar
             driver.FindElement(By.CssSelector("div:nth-child(2) > .botoes-bottom-verde")).Click();
             #endregion
+            System.Threading.Thread.Sleep(8000);
+            driver.FindElement(By.XPath("/html/body/div[7]/div[2]/button[1]")).Click();
             //Fecha o navegador
             MetodosNavega.SairPlus(driver);
 

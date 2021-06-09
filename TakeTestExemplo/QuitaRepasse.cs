@@ -23,6 +23,7 @@ namespace Comissoes
             #region Login
             var cnpj = driver.FindElement(By.Id("cnpj"));
             cnpj.SendKeys("72408271000191");
+            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar 
             {
                 var elemento = driver.FindElement(By.CssSelector(".logo-login-q"));
                 Actions builder = new Actions(driver);

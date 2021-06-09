@@ -63,10 +63,10 @@ namespace Portal
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div/div[2]/div/div/div[2]/div[1]/div/div[3]/div/div[1]/div/h3/a")).Click();
 
             //inicia cadastro de documento
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             driver.FindElement(By.LinkText("Seguros")).Click();
 
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".btn-success")).Click();
 
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar

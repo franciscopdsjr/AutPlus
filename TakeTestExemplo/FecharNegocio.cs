@@ -79,25 +79,30 @@ namespace CentralDeNegocios
 
             System.Threading.Thread.Sleep(10000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".zmdi-case:nth-child(2)")).Click();
-            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(2) .form-control")).Click();
-            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(2) .form-control")).SendKeys(Keys.Backspace);
-            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(2) .form-control")).Clear();
-            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(2) .form-control")).SendKeys(agora);
+            System.Threading.Thread.Sleep(10000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[1]/div[2]/div/div[2]/vs-editavel3/div/input")).Click();
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[1]/div[2]/div/div[2]/vs-editavel3/div/input")).SendKeys(Keys.Control + "A");
+            System.Threading.Thread.Sleep(3000);
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[1]/div[2]/div/div[2]/vs-editavel3/div/input")).SendKeys(Keys.Backspace);
+            System.Threading.Thread.Sleep(3000);
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[1]/div[2]/div/div[2]/vs-editavel3/div/input")).Click();
+            System.Threading.Thread.Sleep(3000);
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[1]/div[2]/div/div[2]/vs-editavel3/div/input")).SendKeys("09/06/2021");
             driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(3) .form-control")).Click();
             driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(3) .form-control")).SendKeys(Keys.Backspace);
             driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(3) .form-control")).Clear();
-            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(3) .form-control")).SendKeys(agora);
+            driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(3) .form-control")).SendKeys("09/06/2021");
             driver.FindElement(By.CssSelector(".col-xs-12:nth-child(1) .col-xs-4:nth-child(3) .form-control")).SendKeys(Keys.Tab);
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[1]/div[2]/div/div[7]/vs-editavel3/div/input")).Clear();
             //driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div.row > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral.col-menu-vert-11 > div:nth-child(1) > div:nth-child(2) > div > div > div > button")).Click();
             driver.FindElement(By.Id("combovendedorBusca")).Clear();
             driver.FindElement(By.Id("combovendedorBusca")).SendKeys("Fran");
-            System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(5000);
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[1]/div[2]/div/div[8]/vs-editavel3/div/ul/li[1]/a")).Click();
-            System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(5000);
             driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[2]/div/div/div/button")).Click();
             //Clicar no negocio que sera fechado
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("tbody > tr > td:nth-child(1) > button > i")).Click();
 
             //Fechar negocio
