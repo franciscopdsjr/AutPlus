@@ -23,7 +23,7 @@ namespace Comissoes
             #region Login
             var cnpj = driver.FindElement(By.Id("cnpj"));
             cnpj.SendKeys("72408271000191");
-            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar 
+            System.Threading.Thread.Sleep(10000);//Aguardando a pagina carregar 
             {
                 var elemento = driver.FindElement(By.CssSelector(".logo-login-q"));
                 Actions builder = new Actions(driver);
@@ -51,14 +51,14 @@ namespace Comissoes
             #endregion
 
             #region Quitar Repasses
-            System.Threading.Thread.Sleep(6000);//Aguardando a pagina carregar 
+            System.Threading.Thread.Sleep(8000);//Aguardando a pagina carregar 
             driver.FindElement(By.Id("botaoMenu")).Click();
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector("div:nth-child(3) > .menu > .menu-item:nth-child(9) > .menu-span > .ng-binding")).Click();
-            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(8000);//Aguardando a pagina carregar
             IWebElement btnQuitaRep = driver.FindElement(By.XPath("/html/body/div[5]/nav/div[3]/ul/li[18]/a"));
             MetodosNavega.NavegaScroll(driver, btnQuitaRep);
-            System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(8000);
             driver.FindElement(By.CssSelector(".menu-item:nth-child(9) > .expandida > .menu > .menu-item:nth-child(4) > .menu-span > .ng-binding")).Click();
             System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
 
@@ -86,6 +86,7 @@ namespace Comissoes
             }
             System.Threading.Thread.Sleep(2000);//Aguardando a pagina carregar 
             driver.FindElement(By.CssSelector(".confirm")).Click();
+            System.Threading.Thread.Sleep(8000);
             #endregion
 
             IWebElement caixaConfirma = driver.FindElement(By.XPath("/html/body/div[7]/div[2]/button[1]"));

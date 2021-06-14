@@ -94,7 +94,7 @@ namespace CentralDeSenhas
             // 
             driver.FindElement(By.CssSelector(".col-lg-12 > .ng-pristine .form-control")).Click();
             // Clica em descrição
-            driver.FindElement(By.CssSelector("div:nth-child(2) > div:nth-child(2) > div.col-lg-8.ng-scope > div:nth-child(1) > div > div > div > div.card-body.card-padding.row > div:nth-child(1) > vs-editavel3 > div > input")).SendKeys("ROBO TESTE");
+            driver.FindElement(By.CssSelector("div:nth-child(2) > div:nth-child(2) > div.col-lg-8.ng-scope > div:nth-child(1) > div > div > div > div.card-body.card-padding.row > div:nth-child(1) > vs-editavel3 > div > input")).SendKeys("ROBO TESTE " + MetodosNavega.DiaDeHoje());
             // Clica em usuario | 
             driver.FindElement(By.CssSelector(".col-lg-6 .ng-valid-maxlength")).Click();
             // Informa o usuario | 06564836953
@@ -127,7 +127,7 @@ namespace CentralDeSenhas
 
            
 
-            driver.Quit();
+           // driver.Quit();
         }
     }
 }

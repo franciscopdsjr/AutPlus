@@ -24,6 +24,7 @@ namespace Comissoes
             #region Login
             var cnpj = driver.FindElement(By.Id("cnpj"));
             cnpj.SendKeys("72408271000191");
+            System.Threading.Thread.Sleep(5000);
             {
                 var elemento = driver.FindElement(By.CssSelector(".logo-login-q"));
                 Actions builder = new Actions(driver);
@@ -66,16 +67,19 @@ namespace Comissoes
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             driver.FindElement(By.Id("comboundefined")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
-            driver.FindElement(By.Id("comboundefined")).SendKeys("porto");
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
-            driver.FindElement(By.CssSelector("strong")).Click();
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
-            driver.FindElement(By.Name("frmAutoFormrepasseComissaoLiberacaoRepassesundefined_edt_ramo_codigo")).Click();
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
-            driver.FindElement(By.Name("frmAutoFormrepasseComissaoLiberacaoRepassesundefined_edt_ramo_codigo")).SendKeys("aeronautico");
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
-            driver.FindElement(By.LinkText("AERONAUTICO")).Click();
-            System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[3]/form/div[2]/div/div[2]/div[3]/div[2]/div/vs-editavel3/div/input")).SendKeys("francisco");
+            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[3]/form/div[2]/div/div[2]/div[3]/div[2]/div/vs-editavel3/div/input")).SendKeys(Keys.Enter);
+            //driver.FindElement(By.Id("comboundefined")).SendKeys("porto");
+            //System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            //driver.FindElement(By.CssSelector("strong")).Click();
+            //System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            //driver.FindElement(By.Name("frmAutoFormrepasseComissaoLiberacaoRepassesundefined_edt_ramo_codigo")).Click();
+            //System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            //driver.FindElement(By.Name("frmAutoFormrepasseComissaoLiberacaoRepassesundefined_edt_ramo_codigo")).SendKeys("aeronautico");
+            //System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+            //driver.FindElement(By.LinkText("AERONAUTICO")).Click();
+            //System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
+
             driver.FindElement(By.CssSelector(".btn-flat:nth-child(2)")).Click();
             System.Threading.Thread.Sleep(3000);//Aguardando a pagina carregar
             IWebElement btnLibera = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div[1]/div[4]/div/div/div/button[2]"));

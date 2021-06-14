@@ -46,6 +46,8 @@ namespace Automacao
             }
             Login login = new Login();
 
+            System.Threading.Thread.Sleep(6000);
+
             driver.FindElement(By.CssSelector(".ng-scope > .animated")).Click();
             driver.FindElement(By.Id("usuario")).Click();
             driver.FindElement(By.Id("usuario")).SendKeys(login.RetornaUsuario());
@@ -55,19 +57,25 @@ namespace Automacao
 
             #region Automação de comissão
             //Seleciona Automação de comissão
-            System.Threading.Thread.Sleep(4000);//Aguardando a pagina carregar
+            System.Threading.Thread.Sleep(8000);//Aguardando a pagina carregar
             driver.FindElement(By.CssSelector(".icon-receipt:nth-child(2)")).Click();
 
             //Clica na cia "Bradesco"
-            driver.ExecuteJavaScript("window.scroll(0,1000)");//Scroll na página
-            System.Threading.Thread.Sleep(9000);//Aguardando a pagina carregar
-            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[3]/div[1]/div[2]/div/div[10]")).Click();            
-
+            //            driver.ExecuteJavaScript("window.scroll(0,1000)");//Scroll na página
+            System.Threading.Thread.Sleep(10000);//Aguardando a pagina carregar
+            try
+            {
+                driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[3]/div[1]/div[2]/div/div[19]")).Click();
+            }
+            catch
+            {
+                driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[3]/div[1]/div[2]/div/div[19]/div/div[2]")).Click();
+            }
             //Informa corretora
             driver.FindElement(By.Id("comboundefined")).Click();
             driver.FindElement(By.Id("comboundefined")).SendKeys("matriz");
-            driver.FindElement(By.Id("comboundefined")).SendKeys(Keys.Tab);
-            
+            driver.FindElement(By.Id("comboundefined")).SendKeys(Keys.Enter);
+
 
             //Desmarcar
             System.Threading.Thread.Sleep(20000);//Aguardando a pagina carregar
@@ -75,31 +83,98 @@ namespace Automacao
             //driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[2]/div/div[2]/div[2]/div/div/div[1]/table/tbody/tr/td[1]/vs-editavel3/div/label/input")).Click();
             //Marcar somente um
             driver.ExecuteJavaScript("window.scroll(0,1000)");
-
+            
             string semArquivos = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[3]/div/div[2]/div/h5")).Text;
 
-            if(semArquivos == "Nenhum arquivo selecionado")
+            System.Threading.Thread.Sleep(5000);
+
+            try
             {
-                bool valido = true;
-                Assert.IsTrue(valido);
+                string qtdArquivosBaixados = driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[4]/div/div[1]/h2")).Text;
+                int qtdArqBaixados = MetodosNavega.DevolveNumeroDeUmTexto(qtdArquivosBaixados);
+
+                if (qtdArqBaixados >= 1)
+                {
+                    if (qtdArqBaixados == 1)
+                    {
+                        driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > td .check")).Click();
+                        driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > td .check")).Click();
+                    }
+                    else
+                    {
+                        try
+                        {
+                            driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[4]/div/div[1]/div/spam[2]")).Click();
+                        }
+                        catch
+                        {
+                            for (int i = 1; i <= qtdArqBaixados; i++)
+                            {
+                                driver.FindElement(By.CssSelector(".ng-scope:nth-child(" + i + ") > td .check")).Click();
+                            }
+                        }
+
+                        driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > td .check")).Click();
+                    }
+
+                    System.Threading.Thread.Sleep(5000);
+                    //Continuar
+                    driver.FindElement(By.CssSelector(".btn-md")).Click();
+                    System.Threading.Thread.Sleep(5000);
+                    //Grava
+                    System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
+                    System.Threading.Thread.Sleep(5000);
+
+                    //ESC para fechar a tela de dados da importação
+                    System.Threading.Thread.Sleep(5000);
+                    Actions action = new Actions(driver);
+                    action.SendKeys(OpenQA.Selenium.Keys.Escape).Perform();
+                    System.Threading.Thread.Sleep(5000);
+                    driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[5]/div/div/button")).Click();
+                    System.Threading.Thread.Sleep(5000);
+
+                    if (driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[2]/div[2]/div/div[1]/h2")).Displayed)
+                    {
+
+                        //Definindo a categoria e conta para envio ao cashflow
+                        driver.FindElement(By.XPath("/html/body/div[5]/div[2]/div[3]/div[4]/div/div[5]/div/div/button[2]")).Click();
+                        System.Threading.Thread.Sleep(6000);
+
+
+                        IWebElement categoria = driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[2]/div/div/div[4]/vs-editavel3/div/input"));
+                        IWebElement conta = driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[2]/div/div/div[5]/vs-editavel3/div/input"));
+
+                        {
+
+                            Actions actionProvider = new Actions(driver);
+                            actionProvider.Click(categoria).Build().Perform();
+                            actionProvider.Click(categoria).Build().Perform();
+                            actionProvider.SendKeys(categoria, "COMISSÕES RECEBIDAS");
+                            actionProvider.Click(categoria).Build().Perform();
+                            driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[2]/div/div/div[4]/vs-editavel3/div/ul/li/a")).Click();
+                        }
+                        
+                        {
+
+                            Actions actionProvider2 = new Actions(driver);
+                            // Perform click-and-hold action on the element
+                            actionProvider2.Click(conta).Build().Perform();
+                            actionProvider2.Click(conta).Build().Perform();
+                            actionProvider2.SendKeys(conta, "CONTA BB").Build().Perform(); 
+                            driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[2]/div/div/div[5]/vs-editavel3/div/ul/li/a")).Click();
+                        }
+
+                        //Clicando no Gravar informações.
+                        driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[3]/div/button[3]")).Click();
+
+                    }
+                }
             }
-            else {
-                driver.FindElement(By.CssSelector(".ng-scope:nth-child(1) > td .check")).Click();
-
-                //Continuar
-                driver.FindElement(By.CssSelector(".btn-md")).Click();
-
-                //Grava
-                System.Threading.Thread.Sleep(5000);//Aguardando a pagina carregar
-
-                int a = 20;
-
-                int c = a;
-                //ESC para fechar a tela de dados da importação
-                Actions action = new Actions(driver);
-                action.SendKeys(OpenQA.Selenium.Keys.Escape).Perform();
-
-                driver.FindElement(By.CssSelector("div:nth-child(5) > div.container-fluid > div:nth-child(3) > div.index-conteudo.ng-scope.animated.fadeIn.conteudo-geral > div > div.botoes-bottom.botoes-bottom-calcular-todas.ng-scope > div > div > button")).Click();
+            catch
+            {
+                IWebElement graverInformacaoes = driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[3]/div/button[3]"));
+                Actions actionsProvider3 = new Actions(driver);
+                actionsProvider3.Click(graverInformacaoes).Build().Perform();
             }
 
             #endregion

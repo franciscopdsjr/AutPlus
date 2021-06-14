@@ -100,7 +100,13 @@ namespace Automacao
 
             //Comissao
             driver.FindElement(By.CssSelector(".ng-invalid .form-control")).Click();
-            driver.FindElement(By.CssSelector(".ng-invalid .form-control")).SendKeys("20");
+            for(int i = 0; i < 4; i++) { 
+            driver.FindElement(By.CssSelector(".ng-invalid .form-control")).SendKeys(Keys.Backspace);
+            }
+            driver.FindElement(By.XPath("/html/body/div[12]/div[2]/div[6]/div[1]/div[2]/vs-editavel3/div/input")).SendKeys("20,00");
+            //driver.FindElement(By.CssSelector(".ng-invalid .form-control")).SendKeys(Keys.Delete);
+            
+            
 
             //Vendedor
             driver.ExecuteJavaScript("window.scroll(0,2000)");
